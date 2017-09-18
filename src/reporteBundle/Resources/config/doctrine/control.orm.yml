@@ -1,0 +1,22 @@
+reporteBundle\Entity\control:
+    type: entity
+    table: null
+    repositoryClass: reporteBundle\Repository\controlRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        descripcion:
+            type: string
+            length: 255
+        observaciones:
+            type: string
+            length: 255
+        fechaInicio:
+            type: datetime
+        fechaFin:
+            type: datetime
+    lifecycleCallbacks: {  }

@@ -1,0 +1,24 @@
+reportes_index:
+    path:     /
+    defaults: { _controller: "reporteBundle:reportes:index" }
+    methods:  GET
+
+reportes_show:
+    path:     /{id}/show
+    defaults: { _controller: "reporteBundle:reportes:show" }
+    methods:  GET
+
+reportes_new:
+    path:     /new
+    defaults: { _controller: "reporteBundle:reportes:new" }
+    methods:  [GET, POST]
+
+reportes_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "reporteBundle:reportes:edit" }
+    methods:  [GET, POST]
+
+reportes_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "reporteBundle:reportes:delete" }
+    methods:  DELETE

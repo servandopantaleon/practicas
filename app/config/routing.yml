@@ -1,3 +1,12 @@
+hola:
+    resource: "@holaBundle/Resources/config/routing.yml"
+    prefix:   /
+
+reporte_control:
+        resource: "@reporteBundle/Resources/config/routing/control.yml"
+        prefix:   /control
+
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation

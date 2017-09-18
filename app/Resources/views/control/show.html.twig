@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Control</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ control.id }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ control.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Observaciones</th>
+                <td>{{ control.observaciones }}</td>
+            </tr>
+            <tr>
+                <th>Fechainicio</th>
+                <td>{% if control.fechaInicio %}{{ control.fechaInicio|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Fechafin</th>
+                <td>{% if control.fechaFin %}{{ control.fechaFin|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('control_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('control_edit', { 'id': control.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

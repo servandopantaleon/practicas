@@ -17,6 +17,8 @@
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="AppBundle">AppBundle\AppBundle</parameter>
+      <parameter key="reporteBundle">reporteBundle\reporteBundle</parameter>
+      <parameter key="holaBundle">holaBundle\holaBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -63,6 +65,16 @@
         <parameter key="parent">null</parameter>
         <parameter key="path">/var/www/html/practicas/danielyadir/src/AppBundle</parameter>
         <parameter key="namespace">AppBundle</parameter>
+      </parameter>
+      <parameter key="reporteBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/var/www/html/practicas/danielyadir/src/reporteBundle</parameter>
+        <parameter key="namespace">reporteBundle</parameter>
+      </parameter>
+      <parameter key="holaBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/var/www/html/practicas/danielyadir/src/holaBundle</parameter>
+        <parameter key="namespace">holaBundle</parameter>
       </parameter>
       <parameter key="DebugBundle" type="collection">
         <parameter key="parent">null</parameter>
@@ -601,7 +613,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>AJtB6w0+W7I1BFo87eG80j</argument>
+      <argument>IwfvRHkuE8MdMBwW6viLqA</argument>
       <argument>/var/www/html/practicas/danielyadir/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -611,7 +623,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>AJtB6w0+W7I1BFo87eG80j</argument>
+      <argument>IwfvRHkuE8MdMBwW6viLqA</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -2161,12 +2173,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>59adec831af141.72293111</argument>
+      <argument>59bc0cab0b3341.87109588</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>59adec831af141.72293111</argument>
+      <argument>59bc0cab0b3341.87109588</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -2344,6 +2356,14 @@
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
+        <argument>/var/www/html/practicas/danielyadir/src/reporteBundle/Resources/views</argument>
+        <argument>reporte</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/practicas/danielyadir/src/holaBundle/Resources/views</argument>
+        <argument>hola</argument>
+      </call>
+      <call method="addPath">
         <argument>/var/www/html/practicas/danielyadir/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
@@ -2484,6 +2504,14 @@
       <call method="addPath">
         <argument>/var/www/html/practicas/danielyadir/vendor/doctrine/doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/practicas/danielyadir/src/reporteBundle/Resources/views</argument>
+        <argument>reporte</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/practicas/danielyadir/src/holaBundle/Resources/views</argument>
+        <argument>hola</argument>
       </call>
       <call method="addPath">
         <argument>/var/www/html/practicas/danielyadir/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
@@ -2813,7 +2841,9 @@
     <service id="doctrine.orm.quote_strategy.ansi" class="Doctrine\ORM\Mapping\AnsiQuoteStrategy" public="false"/>
     <service id="doctrine.orm.default_configuration" class="Doctrine\ORM\Configuration" public="false">
       <call method="setEntityNamespaces">
-        <argument type="collection"/>
+        <argument type="collection">
+          <argument key="reporteBundle">reporteBundle\Entity</argument>
+        </argument>
       </call>
       <call method="setMetadataCacheImpl">
         <argument type="service" id="doctrine_cache.providers.doctrine.orm.default_metadata_cache"/>
@@ -2852,7 +2882,20 @@
         <argument type="service" id="doctrine.orm.default_entity_listener_resolver"/>
       </call>
     </service>
-    <service id="doctrine.orm.default_metadata_driver" class="Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain" public="false"/>
+    <service id="doctrine.orm.default_yml_metadata_driver" class="Doctrine\ORM\Mapping\Driver\SimplifiedYamlDriver" public="false">
+      <argument type="collection">
+        <argument key="/var/www/html/practicas/danielyadir/src/reporteBundle/Resources/config/doctrine">reporteBundle\Entity</argument>
+      </argument>
+      <call method="setGlobalBasename">
+        <argument>mapping</argument>
+      </call>
+    </service>
+    <service id="doctrine.orm.default_metadata_driver" class="Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain" public="false">
+      <call method="addDriver">
+        <argument type="service" id="doctrine.orm.default_yml_metadata_driver"/>
+        <argument>reporteBundle\Entity</argument>
+      </call>
+    </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_metadata_cache" class="Doctrine\Common\Cache\ArrayCache">
       <call method="setNamespace">
         <argument>sf2orm_default_c9ed7d8e032fa2da0a765407d94f94c04b132e2dd33b11bd7f03670aa77e97b4</argument>
@@ -3351,7 +3394,7 @@
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>fBwjgNosYu</argument>
       <argument>0</argument>
-      <argument>AJtB6w0+W7I1BFo87eG80j</argument>
+      <argument>IwfvRHkuE8MdMBwW6viLqA</argument>
       <argument>/var/www/html/practicas/danielyadir/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3359,7 +3402,7 @@
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>hzzgti+Nez</argument>
       <argument>0</argument>
-      <argument>AJtB6w0+W7I1BFo87eG80j</argument>
+      <argument>IwfvRHkuE8MdMBwW6viLqA</argument>
       <argument>/var/www/html/practicas/danielyadir/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3367,7 +3410,7 @@
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>2FcH5cVthk</argument>
       <argument>0</argument>
-      <argument>AJtB6w0+W7I1BFo87eG80j</argument>
+      <argument>IwfvRHkuE8MdMBwW6viLqA</argument>
       <argument>/var/www/html/practicas/danielyadir/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3375,7 +3418,7 @@
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>2HycbWX43R</argument>
       <argument>0</argument>
-      <argument>AJtB6w0+W7I1BFo87eG80j</argument>
+      <argument>IwfvRHkuE8MdMBwW6viLqA</argument>
       <argument>/var/www/html/practicas/danielyadir/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>

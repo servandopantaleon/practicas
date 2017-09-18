@@ -1,0 +1,7 @@
+reporte_reportes:
+    resource: "@reporteBundle/Resources/config/routing/reportes.yml"
+    prefix:   /reportes
+
+reporte_homepage:
+    path:     /
+    defaults: { _controller: reporteBundle:Default:index }

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Reporte</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ reporte.id }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ reporte.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Observaciones</th>
+                <td>{{ reporte.observaciones }}</td>
+            </tr>
+            <tr>
+                <th>Fechainicio</th>
+                <td>{% if reporte.fechaInicio %}{{ reporte.fechaInicio|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Fechafin</th>
+                <td>{% if reporte.fechaFin %}{{ reporte.fechaFin|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('reportes_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('reportes_edit', { 'id': reporte.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

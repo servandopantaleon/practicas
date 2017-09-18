@@ -1,0 +1,3 @@
+hola_homepage:
+    path:     /
+    defaults: { _controller: holaBundle:Default:index }

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Reportes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Descripcion</th>
+                <th>Observaciones</th>
+                <th>Fechainicio</th>
+                <th>Fechafin</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reporte in reportes %}
+            <tr>
+                <td><a href="{{ path('reportes_show', { 'id': reporte.id }) }}">{{ reporte.id }}</a></td>
+                <td>{{ reporte.descripcion }}</td>
+                <td>{{ reporte.observaciones }}</td>
+                <td>{% if reporte.fechaInicio %}{{ reporte.fechaInicio|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if reporte.fechaFin %}{{ reporte.fechaFin|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('reportes_show', { 'id': reporte.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('reportes_edit', { 'id': reporte.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('reportes_new') }}">Create a new reporte</a>
+        </li>
+    </ul>
+{% endblock %}
