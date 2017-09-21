@@ -1,9 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
+
+
+{% block content %}
+<div class="cardbox">
+                
+              <div class="cardbox-heading">
+<ul class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
+            <li class="breadcrumb-item active"><span>Bootstrap</span></li>
+          </ul>
+             </div>
+          </div>
+
+            <!-- DATATABLE DEMO 1-->
+
+      
+              
+         
+          
+            <!-- DATATABLE DEMO 1-->
+            <div class="cardbox">
+                
+              <div class="cardbox-heading">             
     <h1>Controls list</h1>
 
-    <table>
+    <a class="btn btn-secondary btn-gradient wd-sm btn-danger" href="{{ path('control_new') }}">Nuevo Reporte</a>                            
+    
+<div class="cardbox-body clearfix">
+                <div class="table-responsive">
+    <table class="table table-striped my-4 " id="datatable2">
+
         <thead>
             <tr>
                 <th>Id</th>
@@ -24,22 +52,35 @@
                 <td>{% if control.fechaFin %}{{ control.fechaFin|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
                     <ul>
-                        <li>
-                            <a href="{{ path('control_show', { 'id': control.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('control_edit', { 'id': control.id }) }}">edit</a>
-                        </li>
+                        
+                            
+                                <a class="btn btn-outline-primary" href="{{ path('control_show', { 'id': control.id }) }}">ver</a>
+                              
+                            
+                        
+                        
+                                <a class="btn btn-outline-danger" href="{{ path('control_new') }}">editar</a>
+                            
+                        
                     </ul>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
+        </div>
+</div>
     </table>
+</div>
+</div>
 
-    <ul>
-        <li>
-            <a href="{{ path('control_new') }}">Create a new control</a>
-        </li>
-    </ul>
+
+
+
+
+
 {% endblock %}
+{% block Javascript %}
+
+
+  
+{% endblock Javascript %}
