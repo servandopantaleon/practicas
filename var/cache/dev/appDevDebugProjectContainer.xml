@@ -19,6 +19,7 @@
       <parameter key="AppBundle">AppBundle\AppBundle</parameter>
       <parameter key="reporteBundle">reporteBundle\reporteBundle</parameter>
       <parameter key="holaBundle">holaBundle\holaBundle</parameter>
+      <parameter key="InventarioBundle">Inventario\Bundle\InventarioBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -75,6 +76,11 @@
         <parameter key="parent">null</parameter>
         <parameter key="path">/var/www/html/practicas/danielyadir/src/holaBundle</parameter>
         <parameter key="namespace">holaBundle</parameter>
+      </parameter>
+      <parameter key="InventarioBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/var/www/html/practicas/danielyadir/src/Inventario/Bundle</parameter>
+        <parameter key="namespace">Inventario\Bundle</parameter>
       </parameter>
       <parameter key="DebugBundle" type="collection">
         <parameter key="parent">null</parameter>
@@ -170,6 +176,7 @@
     <parameter key="twig.exception_listener.controller">twig.controller.exception:showAction</parameter>
     <parameter key="twig.form.resources" type="collection">
       <parameter>form_div_layout.html.twig</parameter>
+      <parameter>::fields.html.twig</parameter>
     </parameter>
     <parameter key="monolog.use_microseconds">true</parameter>
     <parameter key="monolog.swift_mailer.handlers" type="collection"/>
@@ -613,7 +620,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>z5m4AcvJGF1s3JICXc1iwL</argument>
+      <argument>aIzLXvLEvQrjLniWtrgKcl</argument>
       <argument>/var/www/html/practicas/danielyadir/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -623,7 +630,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>z5m4AcvJGF1s3JICXc1iwL</argument>
+      <argument>aIzLXvLEvQrjLniWtrgKcl</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -2173,12 +2180,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>59c2c2153a6fc0.24536367</argument>
+      <argument>59cd907c733636.43341726</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>59c2c2153a6fc0.24536367</argument>
+      <argument>59cd907c733636.43341726</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -2216,12 +2223,13 @@
     <service id="twig" class="Twig\Environment">
       <argument type="service" id="twig.loader.filesystem"/>
       <argument type="collection">
+        <argument key="form_themes" type="collection">
+          <argument>form_div_layout.html.twig</argument>
+          <argument>::fields.html.twig</argument>
+        </argument>
         <argument key="debug">true</argument>
         <argument key="strict_variables">true</argument>
         <argument key="exception_controller">twig.controller.exception:showAction</argument>
-        <argument key="form_themes" type="collection">
-          <argument>form_div_layout.html.twig</argument>
-        </argument>
         <argument key="autoescape">name</argument>
         <argument key="cache">/var/www/html/practicas/danielyadir/var/cache/dev/twig</argument>
         <argument key="charset">UTF-8</argument>
@@ -2364,6 +2372,10 @@
         <argument>hola</argument>
       </call>
       <call method="addPath">
+        <argument>/var/www/html/practicas/danielyadir/src/Inventario/Bundle/Resources/views</argument>
+        <argument>Inventario</argument>
+      </call>
+      <call method="addPath">
         <argument>/var/www/html/practicas/danielyadir/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
@@ -2472,6 +2484,7 @@
     <service id="twig.form.engine" class="Symfony\Bridge\Twig\Form\TwigRendererEngine" public="false">
       <argument type="collection">
         <argument>form_div_layout.html.twig</argument>
+        <argument>::fields.html.twig</argument>
       </argument>
       <argument type="service" id="twig"/>
     </service>
@@ -2512,6 +2525,10 @@
       <call method="addPath">
         <argument>/var/www/html/practicas/danielyadir/src/holaBundle/Resources/views</argument>
         <argument>hola</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/practicas/danielyadir/src/Inventario/Bundle/Resources/views</argument>
+        <argument>Inventario</argument>
       </call>
       <call method="addPath">
         <argument>/var/www/html/practicas/danielyadir/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
@@ -2843,6 +2860,7 @@
       <call method="setEntityNamespaces">
         <argument type="collection">
           <argument key="reporteBundle">reporteBundle\Entity</argument>
+          <argument key="InventarioBundle">Inventario\Bundle\Entity</argument>
         </argument>
       </call>
       <call method="setMetadataCacheImpl">
@@ -2885,6 +2903,7 @@
     <service id="doctrine.orm.default_yml_metadata_driver" class="Doctrine\ORM\Mapping\Driver\SimplifiedYamlDriver" public="false">
       <argument type="collection">
         <argument key="/var/www/html/practicas/danielyadir/src/reporteBundle/Resources/config/doctrine">reporteBundle\Entity</argument>
+        <argument key="/var/www/html/practicas/danielyadir/src/Inventario/Bundle/Resources/config/doctrine">Inventario\Bundle\Entity</argument>
       </argument>
       <call method="setGlobalBasename">
         <argument>mapping</argument>
@@ -2894,6 +2913,10 @@
       <call method="addDriver">
         <argument type="service" id="doctrine.orm.default_yml_metadata_driver"/>
         <argument>reporteBundle\Entity</argument>
+      </call>
+      <call method="addDriver">
+        <argument type="service" id="doctrine.orm.default_yml_metadata_driver"/>
+        <argument>Inventario\Bundle\Entity</argument>
       </call>
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_metadata_cache" class="Doctrine\Common\Cache\ArrayCache">
@@ -3394,7 +3417,7 @@
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>fBwjgNosYu</argument>
       <argument>0</argument>
-      <argument>z5m4AcvJGF1s3JICXc1iwL</argument>
+      <argument>aIzLXvLEvQrjLniWtrgKcl</argument>
       <argument>/var/www/html/practicas/danielyadir/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3402,7 +3425,7 @@
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>hzzgti+Nez</argument>
       <argument>0</argument>
-      <argument>z5m4AcvJGF1s3JICXc1iwL</argument>
+      <argument>aIzLXvLEvQrjLniWtrgKcl</argument>
       <argument>/var/www/html/practicas/danielyadir/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3410,7 +3433,7 @@
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>2FcH5cVthk</argument>
       <argument>0</argument>
-      <argument>z5m4AcvJGF1s3JICXc1iwL</argument>
+      <argument>aIzLXvLEvQrjLniWtrgKcl</argument>
       <argument>/var/www/html/practicas/danielyadir/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3418,7 +3441,7 @@
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>2HycbWX43R</argument>
       <argument>0</argument>
-      <argument>z5m4AcvJGF1s3JICXc1iwL</argument>
+      <argument>aIzLXvLEvQrjLniWtrgKcl</argument>
       <argument>/var/www/html/practicas/danielyadir/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>

@@ -1,0 +1,7 @@
+inventario_equipo:
+    resource: "@InventarioBundle/Resources/config/routing/equipo.yml"
+    prefix:   /equipo
+
+inventario_homepage:
+    path:     /
+    defaults: { _controller: InventarioBundle:Default:index }

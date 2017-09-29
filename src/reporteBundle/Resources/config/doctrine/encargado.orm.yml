@@ -1,0 +1,25 @@
+reporteBundle\Entity\encargado:
+    type: entity
+    table: null
+    repositoryClass: reporteBundle\Repository\encargadoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombres:
+            type: string
+            length: '100'
+        telefono:
+            type: integer
+        eMail:
+            type: string
+            length: '50'
+        telExtencion:
+            type: integer
+        turno:
+            type: string
+            length: '20'
+    lifecycleCallbacks: {  }

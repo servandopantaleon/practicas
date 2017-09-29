@@ -37,6 +37,8 @@ framework:
 
 # Twig Configuration
 twig:
+    form_themes:
+        - '::fields.html.twig'
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
 

@@ -37,7 +37,7 @@ class controlController extends Controller
         $form = $this->createForm('reporteBundle\Form\controlType', $control);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($control);
             $em->flush();

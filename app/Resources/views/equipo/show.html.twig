@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Equipo</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ equipo.id }}</td>
+            </tr>
+            <tr>
+                <th>Noinventario</th>
+                <td>{{ equipo.noInventario }}</td>
+            </tr>
+            <tr>
+                <th>So</th>
+                <td>{{ equipo.sO }}</td>
+            </tr>
+            <tr>
+                <th>Ethernet</th>
+                <td>{{ equipo.ethernet }}</td>
+            </tr>
+            <tr>
+                <th>Mac</th>
+                <td>{{ equipo.mac }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('equipo_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('equipo_edit', { 'id': equipo.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

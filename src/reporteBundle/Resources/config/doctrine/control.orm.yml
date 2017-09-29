@@ -19,4 +19,11 @@ reporteBundle\Entity\control:
             type: datetime
         fechaFin:
             type: datetime
+    manyToOne : 
+        alumnos : 
+            targetEntity :  reporteBundle\Entity\alumnos 
+        encargado : 
+            targetEntity :  reporteBundle\Entity\encargado
+        equipo : 
+            targetEntity :  Inventario\Bundle\Entity\equipo                
     lifecycleCallbacks: {  }

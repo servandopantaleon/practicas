@@ -1,0 +1,23 @@
+Inventario\Bundle\Entity\equipo:
+    type: entity
+    table: null
+    repositoryClass: Inventario\Bundle\Repository\equipoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        noInventario:
+            type: integer
+        sO:
+            type: string
+            length: '20'
+        ethernet:
+            type: string
+            length: '40'
+        mac:
+            type: string
+            length: '50'
+    lifecycleCallbacks: {  }

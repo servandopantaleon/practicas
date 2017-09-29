@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Equipo creation</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('equipo_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}
+{#<form class="form-validate" id="form-example" name="form.formValidate" novalidate="">
+              <div class="cardbox">
+                <div class="cardbox-heading">Basics</div>
+                <div class="cardbox-body">
+                      
+                    
+                    <fieldset>
+                        <div class="form-group row">    
+                            <label class="col-sm-2 col-form-label">Nombre del Usuario</label>
+                            <div class="col-sm-6 rel-wrapper ui-datepicker ui-datepicker-popup dp-theme-info" id="example-datepicker-container-4" >
+                                {{ form_widget(form.alumnos) }}   
+                                                 
+                            </div>
+                        </div>  
+                    </fieldset> 
+                    <fieldset>
+                        <div class="form-group row">    
+                            <label class="col-sm-2 col-form-label">Reporte asignado a</label>
+                            <div class="col-sm-6 rel-wrapper ui-datepicker ui-datepicker-popup dp-theme-info" id="example-datepicker-container-4" >
+                                {{ form_widget(form.encargado) }}   
+                                                 
+                            </div>
+                        </div>  
+                    </fieldset>
+                     <fieldset>
+                        <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">Problema reportado</label>                      
+                            <div class="col-sm-6 " >
+                                 {{ form_widget(form.descripcion) }}
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">Equipo</label>                      
+                            <div class="col-sm-6 " >
+                                 {{ form_widget(form.equipo) }}
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Observaciones</label>                      
+                            <div class="col-sm-6 " >
+                                {{ form_widget(form.observaciones) }}
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-group row">    
+                            <label class="col-sm-2 col-form-label">Fecha De dolicitud</label>
+                            <div class="col-sm-6 " >
+                                {{ form_widget(form.fechaInicio) }}                      
+                            </div>
+                        </div>  
+                    </fieldset>  
+                    <fieldset>
+                        <div class="form-group row">    
+                            <label class="col-sm-2 col-form-label">Fecha en que se atendio</label>
+                            <div class="col-sm-6 " >
+                                {{ form_widget(form.fechaFin) }}  
+                                                    
+                            </div>
+                        </div>  
+                    </fieldset>
+#}

@@ -1,0 +1,24 @@
+alumnos_index:
+    path:     /
+    defaults: { _controller: "reporteBundle:alumnos:index" }
+    methods:  GET
+
+alumnos_show:
+    path:     /{id}/show
+    defaults: { _controller: "reporteBundle:alumnos:show" }
+    methods:  GET
+
+alumnos_new:
+    path:     /new
+    defaults: { _controller: "reporteBundle:alumnos:new" }
+    methods:  [GET, POST]
+
+alumnos_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "reporteBundle:alumnos:edit" }
+    methods:  [GET, POST]
+
+alumnos_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "reporteBundle:alumnos:delete" }
+    methods:  DELETE

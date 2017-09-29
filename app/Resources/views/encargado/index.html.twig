@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Encargados list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombres</th>
+                <th>Telefono</th>
+                <th>Email</th>
+                <th>Telextencion</th>
+                <th>Turno</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for encargado in encargados %}
+            <tr>
+                <td><a href="{{ path('encargado_show', { 'id': encargado.id }) }}">{{ encargado.id }}</a></td>
+                <td>{{ encargado.nombres }}</td>
+                <td>{{ encargado.telefono }}</td>
+                <td>{{ encargado.eMail }}</td>
+                <td>{{ encargado.telExtencion }}</td>
+                <td>{{ encargado.turno }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('encargado_show', { 'id': encargado.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('encargado_edit', { 'id': encargado.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('encargado_new') }}">Create a new encargado</a>
+        </li>
+    </ul>
+{% endblock %}

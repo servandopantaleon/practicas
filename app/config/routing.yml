@@ -1,11 +1,28 @@
-hola:
-    resource: "@holaBundle/Resources/config/routing.yml"
-    prefix:   /
+
 
 reporte_control:
         resource: "@reporteBundle/Resources/config/routing/control.yml"
         prefix:   /control
 
+reporte_alumnos:
+        resource: "@reporteBundle/Resources/config/routing/alumnos.yml"
+        prefix:   /alumnos
+
+reporte_encargado:
+        resource: "@reporteBundle/Resources/config/routing/encargado.yml"
+        prefix:   /encargado        
+        
+inventario_marca:
+    resource: "@InventarioBundle/Resources/config/routing/marca.yml"
+    prefix:   /marca   
+
+inventario_modelo:
+    resource: "@InventarioBundle/Resources/config/routing/modelo.yml"
+    prefix:   /modelo         
+
+inventario_equipo:
+    resource: "@InventarioBundle/Resources/config/routing/equipo.yml"
+    prefix:   /equipo
 
 app:
     resource: '@AppBundle/Controller/'

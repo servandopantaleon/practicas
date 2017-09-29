@@ -1,0 +1,15 @@
+Inventario\Bundle\Entity\Modelo:
+    type: entity
+    table: null
+    repositoryClass: Inventario\Bundle\Repository\ModeloRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: string
+            length: '50'
+    lifecycleCallbacks: {  }

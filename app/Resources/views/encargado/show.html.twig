@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Encargado</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ encargado.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombres</th>
+                <td>{{ encargado.nombres }}</td>
+            </tr>
+            <tr>
+                <th>Telefono</th>
+                <td>{{ encargado.telefono }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ encargado.eMail }}</td>
+            </tr>
+            <tr>
+                <th>Telextencion</th>
+                <td>{{ encargado.telExtencion }}</td>
+            </tr>
+            <tr>
+                <th>Turno</th>
+                <td>{{ encargado.turno }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('encargado_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('encargado_edit', { 'id': encargado.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

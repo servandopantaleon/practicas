@@ -1,0 +1,36 @@
+reporteBundle\Entity\alumnos:
+    type: entity
+    table: null
+    repositoryClass: reporteBundle\Repository\alumnosRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: string
+            length: '100'
+        telefono:
+            type: integer
+        eMail:
+            type: string
+            length: '40'
+        matricula:
+            type: integer
+        telCel:
+            type: integer
+        cargo:
+            type: string
+            length: '40'
+        departamento:
+            type: string
+            length: '40'
+        licenciatura:
+            type: string
+            length: '40'
+        semestre:
+            type: string
+            length: '40'
+    lifecycleCallbacks: {  }
