@@ -1,55 +1,51 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-   <div class="cardbox">
-                
-              <div class="cardbox-heading">
-<ul class="breadcrumb mb-0">
+   <div class="cardbox">                
+        <div class="cardbox-heading">
+        <ul class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
             <li class="breadcrumb-item"><a href="{{ path('control_index') }}">Reportes</a></li>
             <li class="breadcrumb-item active"><span>nuevo reporte</span></li>
-          </ul>
-             </div>
-          </div>
-
-
-            <div class="row">
-              <div class="col-sm-12">
+        </ul>
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-sm-12">
                 <div class="cardbox">
-                  <div class="pb-1 bg-gradient-info"></div>
-                  <div class="cardbox-body">
-                    <div class="d-flex">
-                      <div class="mr-4"><img class="shadow-z5 thumb80 rounded" src="{{asset('bundles/reporte/assets/img/user/123.png')}}" alt="user"></div>
-                      <div>
-                        <div class="h3 my-2"><strong>Kelly Obrien</strong></div>
-                        <p>Profile</p>
-                      </div>
-                      <div class="ml-auto">
-                        <button class="btn btn-info" type="button">Contact</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="cardbox-body"><small>Friends</small>
-                    <div class="d-flex align-items-center"><img class="img-fluid thumb32 rounded mr-1" src="img/user/04.jpg" alt="User"><img class="img-fluid thumb32 rounded mr-1" src="img/user/05.jpg" alt="User"><img class="img-fluid thumb32 rounded mr-1" src="img/user/06.jpg" alt="User"><img class="img-fluid thumb32 rounded mr-1" src="img/user/03.jpg" alt="User"><strong class="thumb32 pt-1 rounded bg-blue-grey-500 text-center"><small>+10</small></strong></div>
-                  </div>
-                </div>
-              </div>              
-            </div>          
-
-    {{ form_start(form) }}
-
-
-              <div class="cardbox">
-                <div class="cardbox-heading">Basics</div>
-                <div class="cardbox-body">
-                      
-                    
+                    <div class=" pb-1 bg-gradient-primary"></div>
+                    <div class="cardbox-body">
+                        <div class="d-flex">
+                         {# <div class="mr-4"><img class="shadow-z5 thumb80 rounded" src="{{asset('bundles/reporte/assets/img/user/123.png')}}" alt="user"></div>#}
+                          <div class="mb-3"><img class="wd-sm rounded-circle img-thumbnail" src="{{asset('bundles/reporte/assets/img/user/123.png')}}" alt="user"></div>
+                          <div class="cardbox-body text-center">
+                            <div class="h3 my-2"><strong>INSTITUTO DE INVESTIGACIÓN EN HUMANIDADES Y CIENCIAS SOCIALES</strong></div>
+                                <div class=" pb-1 bg-gradient-primary"></div>
+                            <p>SECRETARIA EJECUTUVA/ CENTRO DE COMPUTO/ SOPORTE TECNICO</p>
+                                <div class="pb-1 bg-gradient-primary"></div>
+                            <div class="cardbox-body"><small>Av. Universidad 1001, Chamilpa Cuernavaca Morelos, 62209 México Tel: 329 70000 ext. 3453</small>
+                          </div>
+                           </div>
+                          <div class="ml-auto mb-3""><img class="wd-sm rounded-circle img-thumbnail"  src="{{asset('bundles/reporte/assets/img/12345.png')}}" alt="user"></div>
+                          <div>
+                        </div>                 
+                       </div>
+                    </div>              
+                </div>  
+            </div>  
+        </div>
+{{ form_start(form) }}
+        <div class="cardbox">
+            <div class="cardbox-body text-center">
+                <div class="h3 my-2"><strong>SERVICIOS DE SOPORTE TECNICO</strong></div>
+                <div class="h3 my-2"><strong>DATOS DEL REPORTE</strong></div>
+            </div>        
+                <div class="cardbox-body">                   
                     <fieldset>
                         <div class="form-group row">    
                             <label class="col-sm-2 col-form-label">Nombre del Usuario</label>
                             <div class="col-sm-6 rel-wrapper ui-datepicker ui-datepicker-popup dp-theme-info" id="example-datepicker-container-4" >
-                                {{ form_widget(form.alumnos) }}   
-                                                 
+                                {{ form_widget(form.alumnos) }}                                                   
                             </div>
                         </div>  
                     </fieldset> 
@@ -70,6 +66,9 @@
                             </div>
                         </div>
                     </fieldset>
+                    <div class="cardbox-body text-center">
+                        <div class="h3 my-2"><strong>DATOS DEL EQUIPO</strong></div>                     
+                    </div>
                     <fieldset>
                         <div class="form-group row">
                           <label class="col-sm-2 col-form-label">Equipo</label>                      
@@ -78,7 +77,9 @@
                             </div>
                         </div>
                     </fieldset>
-
+                    <div class="cardbox-body text-center">
+                        <div class="h3 my-2"><strong>OBSERVACIONES</strong></div>                     
+                    </div>
                     <fieldset>
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Observaciones</label>                      
@@ -105,16 +106,22 @@
                             </div>
                         </div>  
                     </fieldset>
+                    <div class="cardbox-body text-center">
+                        <input class="mb-4 btn btn-lg btn-gradient wd-sm btn-primary" type="submit" value="CREAR" />
+                    </div>
+            </div>
+        </div>
+
                    
 
-  <input type="submit" value="Create" />
+  {#<input type="submit" value="Create" />
     {{ form_end(form) }}
 
     <ul>
         <li>
             <a href="{{ path('control_index') }}">Back to the list</a>
         </li>
-    </ul>
+    </ul>#}
 {% endblock %}
 
 {% block Javascript %}

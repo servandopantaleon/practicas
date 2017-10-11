@@ -78,7 +78,7 @@ class controlController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('control_edit', array('id' => $control->getId()));
+            return $this->redirectToRoute('control_index', array('id' => $control->getId()));
         }
 
         return $this->render('control/edit.html.twig', array(

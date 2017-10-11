@@ -1,83 +1,61 @@
 {% extends 'base.html.twig' %}
-
-
-
 {% block content %}
-<div class="cardbox">
-                
-              <div class="cardbox-heading">
-<ul class="breadcrumb mb-0">
-            <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
-            <li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
-            <li class="breadcrumb-item active"><span>Bootstrap</span></li>
-          </ul>
-             </div>
-          </div>
-
-            <!-- DATATABLE DEMO 1-->
-
-      
-              
-         
-          
-            <!-- DATATABLE DEMO 1-->
-            <div class="cardbox">
-                
-              <div class="cardbox-heading">             
-    <h1>Controls list</h1>
-
-    <a class="btn btn-secondary btn-gradient wd-sm btn-danger" href="{{ path('control_new') }}">Nuevo Reporte</a>                            
-    
-<div class="cardbox-body clearfix">
-                <div class="table-responsive">
-    <table class="table table-striped my-4 " id="datatable2">
-
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Descripcion</th>
-                <th>Observaciones</th>
-                <th>Fechainicio</th>
-                <th>Fechafin</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for control in controls %}
-            <tr>
-                <td><a href="{{ path('control_show', { 'id': control.id }) }}">{{ control.id }}</a></td>
-                <td>{{ control.descripcion }}</td>
-                <td>{{ control.observaciones }}</td>
-                <td>{% if control.fechaInicio %}{{ control.fechaInicio|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if control.fechaFin %}{{ control.fechaFin|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>
-                    <ul>
-                        
-                            
-                                <a class="btn btn-outline-primary" href="{{ path('control_show', { 'id': control.id }) }}">ver</a>
-                              
-                            
-                        
-                        
-                                <a class="btn btn-outline-danger" href="{{ path('control_new') }}">editar</a>
-                            
-                        
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
+    <div class="cardbox">                
+        <div class="cardbox-heading">
+            <ul class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+                <li class="breadcrumb-item active"><span>Reportes</span></li>
+            </ul>
         </div>
+    </div>
+<div class="col-sm-12">
+    <div class="cardbox text-white bg-gradient-primary b0">
+        <div class="cardbox-body text-center">           
+            <div class="text-bold display-1">listado de reportes</div>
+        <br></br>
+             <a class="btn btn-secondary btn-gradient wd-sm btn-danger" href="{{ path('control_new') }}">Nuevo Reporte</a>
+    </div>
+</div> 
+</div> 
+
+<div class="container">     
+    <div class="cardbox-body clearfix">
+        <div class="table-responsive">
+            <table class=" table table table-striped my-4 " id="datatable2">
+                <thead>
+                    <tr>
+                        <th class="active">Id</th>
+                        <th class="success">Descripcion</th>
+                        <th class="warning">Observaciones</th>
+                        <th class="danger">Fechainicio</th>
+                        <th>Fechafin</th>
+                        <th>Fechafin</th>
+                        <th>Fechafin</th>
+                        <th>Fechafin</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+            {% for control in controls %}
+                <tr>
+                    <td><a href="{{ path('control_show', { 'id': control.id }) }}">{{ control.id }}</a></td>
+                    <td>{{ control.descripcion }}</td>
+                    <td>{{ control.observaciones }}</td>
+                    <td>{% if control.fechaInicio %}{{ control.fechaInicio|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{% if control.fechaFin %}{{ control.fechaFin|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>
+                        <ul>                          
+                            <a class="btn btn-outline-primary" href="{{ path('control_show', { 'id': control.id }) }}">ver</a>
+                            <a class="btn btn-outline-danger" href="{{ path('control_edit', { 'id': control.id }) }}">editar</a>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
-    </table>
-</div>
-</div>
-
-
-
-
-
-
 {% endblock %}
 {% block Javascript %}
 
