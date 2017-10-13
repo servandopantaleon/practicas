@@ -1,0 +1,4 @@
+
+bienes_muebles_homepage:
+    path:     /
+    defaults: { _controller: BienesMueblesBundle:Default:index }

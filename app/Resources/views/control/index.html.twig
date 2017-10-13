@@ -8,6 +8,7 @@
             </ul>
         </div>
     </div>
+<div class="cardbox">    
 <div class="col-sm-12">
     <div class="cardbox text-white bg-gradient-primary b0">
         <div class="cardbox-body text-center">           
@@ -16,8 +17,9 @@
              <a class="btn btn-secondary btn-gradient wd-sm btn-danger" href="{{ path('control_new') }}">Nuevo Reporte</a>
     </div>
 </div> 
-</div> 
-
+</div>
+</div>
+<div class="cardbox"> 
 <div class="container">     
     <div class="cardbox-body clearfix">
         <div class="table-responsive">
@@ -29,9 +31,9 @@
                         <th class="warning">Observaciones</th>
                         <th class="danger">Fechainicio</th>
                         <th>Fechafin</th>
-                        <th>Fechafin</th>
-                        <th>Fechafin</th>
-                        <th>Fechafin</th>
+                        <th>Alumnos</th>
+                        <th>Encargado</th>
+                        <th>Equipo</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -43,6 +45,9 @@
                     <td>{{ control.observaciones }}</td>
                     <td>{% if control.fechaInicio %}{{ control.fechaInicio|date('Y-m-d H:i:s') }}{% endif %}</td>
                     <td>{% if control.fechaFin %}{{ control.fechaFin|date('Y-m-d H:i:s') }}{% endif %}</td>
+                    <td>{{ control.alumnos }}</td>
+                    <td>{{ control.encargado }}</td>
+                    <td>{{ control.equipo }}</td>
                     <td>
                         <ul>                          
                             <a class="btn btn-outline-primary" href="{{ path('control_show', { 'id': control.id }) }}">ver</a>
@@ -55,6 +60,7 @@
             </table>
         </div>
     </div>
+</div>
 </div>
 {% endblock %}
 {% block Javascript %}

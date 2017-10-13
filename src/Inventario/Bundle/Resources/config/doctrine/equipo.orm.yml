@@ -20,4 +20,12 @@ Inventario\Bundle\Entity\equipo:
         mac:
             type: string
             length: '50'
+        nombre:
+            type: string
+            length: '40'    
+    manyToOne : 
+        Modelo : 
+            targetEntity :  Inventario\Bundle\Entity\Modelo 
+        marca : 
+            targetEntity :  Inventario\Bundle\Entity\marca    
     lifecycleCallbacks: {  }

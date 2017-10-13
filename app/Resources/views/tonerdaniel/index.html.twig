@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Tonerdaniels list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Notoner</th>
+                <th>Observaciones</th>
+                <th>Fechaentrega</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tonerdaniel in tonerdaniels %}
+            <tr>
+                <td><a href="{{ path('tonerdaniel_show', { 'id': tonerdaniel.id }) }}">{{ tonerdaniel.id }}</a></td>
+                <td>{{ tonerdaniel.noToner }}</td>
+                <td>{{ tonerdaniel.observaciones }}</td>
+                <td>{% if tonerdaniel.fechaEntrega %}{{ tonerdaniel.fechaEntrega|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('tonerdaniel_show', { 'id': tonerdaniel.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('tonerdaniel_edit', { 'id': tonerdaniel.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tonerdaniel_new') }}">Create a new tonerdaniel</a>
+        </li>
+    </ul>
+{% endblock %}

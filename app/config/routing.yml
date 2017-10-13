@@ -1,4 +1,28 @@
 
+adir_daniel_daniel:
+        resource: "@AdirDanielBundle/Resources/config/routing/daniel.yml"
+        prefix:   /daniel
+
+adir_daniel_profesores:
+        resource: "@AdirDanielBundle/Resources/config/routing/profesores.yml"
+        prefix:   /profesores        
+
+adir_daniel_materia:
+    resource: "@AdirDanielBundle/Resources/config/routing/materia.yml"
+    prefix:   /materia
+
+bienes_muebles_prestamos:
+    resource: "@BienesMueblesBundle/Resources/config/routing/prestamos.yml"
+    prefix:   /prestamos
+
+
+daniel_toner_tonerdaniel:
+    resource: "@DanielTonerBundle/Resources/config/routing/tonerdaniel.yml"
+    prefix:   /tonerdaniel
+
+# danielcontroltoner_tonerdaniel:
+#     resource: "@danielcontroltonerBundle/Resources/config/routing/tonerdaniel.yml"
+#     prefix:   /tonerdaniel
 
 reporte_control:
         resource: "@reporteBundle/Resources/config/routing/control.yml"

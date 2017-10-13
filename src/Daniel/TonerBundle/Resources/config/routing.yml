@@ -1,0 +1,5 @@
+
+
+daniel_toner_homepage:
+    path:     /
+    defaults: { _controller: DanielTonerBundle:Default:index }

@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Daniels list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Horainicio</th>
+                <th>Horafin</th>
+                <th>Software</th>
+                <th>Totalalumnos</th>
+                <th>Observaciones</th>
+                <th>Fecha</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for daniel in daniels %}
+            <tr>
+                <td><a href="{{ path('daniel_show', { 'id': daniel.id }) }}">{{ daniel.id }}</a></td>
+                <td>{% if daniel.horaInicio %}{{ daniel.horaInicio|date('H:i:s') }}{% endif %}</td>
+                <td>{% if daniel.horaFin %}{{ daniel.horaFin|date('H:i:s') }}{% endif %}</td>
+                <td>{{ daniel.software }}</td>
+                <td>{{ daniel.totalAlumnos }}</td>
+                <td>{{ daniel.observaciones }}</td>
+                <td>{% if daniel.fecha %}{{ daniel.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('daniel_show', { 'id': daniel.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('daniel_edit', { 'id': daniel.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('daniel_new') }}">Create a new daniel</a>
+        </li>
+    </ul>
+{% endblock %}

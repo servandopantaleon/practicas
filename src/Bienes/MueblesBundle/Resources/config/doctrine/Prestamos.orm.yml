@@ -1,0 +1,28 @@
+Bienes\MueblesBundle\Entity\Prestamos:
+    type: entity
+    table: null
+    repositoryClass: Bienes\MueblesBundle\Repository\PrestamosRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        fechaInicio:
+            type: datetime
+        fechaFin:
+            type: datetime
+        atendido:
+            type: boolean
+        ubicacion:
+            type: string
+            length: '50'
+    manyToOne : 
+        alumnos : 
+            targetEntity :  reporteBundle\Entity\alumnos 
+        encargado : 
+            targetEntity :  reporteBundle\Entity\encargado
+        equipo : 
+            targetEntity :  Inventario\Bundle\Entity\equipo            
+    lifecycleCallbacks: {  }

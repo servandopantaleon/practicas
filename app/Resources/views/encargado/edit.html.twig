@@ -1,21 +1,94 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h1>Encargado edit</h1>
+   <div class="cardbox">                
+        <div class="cardbox-heading">
+        <ul class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ path('encargado_index') }}">Reportes</a></li>
+            <li class="breadcrumb-item active"><a href="{{ path('encargado_new') }}">Nuevo Reporte</a></li>
+            <li class="breadcrumb-item active"><span>Editar reporte</span></li>
+        </ul>
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="cardbox">
+                    <div class="pb-1 bg-gradient-warning"></div>
+                    <div class="cardbox-body">
+                        <div class="d-flex">
+                         {# <div class="mr-4"><img class="shadow-z5 thumb80 rounded" src="{{asset('bundles/reporte/assets/img/user/123.png')}}" alt="user"></div>#}
+                          <div class="mb-3"><img class="wd-sm rounded-circle img-thumbnail" src="{{asset('bundles/reporte/assets/img/user/123.png')}}" alt="user"></div>
+                          <div class="cardbox-body text-center">
+                            <div class="h3 my-2"><strong>INSTITUTO DE INVESTIGACIÓN EN HUMANIDADES Y CIENCIAS SOCIALES</strong></div>
+                            <div class="pb-1 bg-gradient-warning"></div>
+                            <p>SECRETARIA EJECUTUVA/ CENTRO DE COMPUTO/ SOPORTE TECNICO</p>
+                            <div class="pb-1 bg-gradient-warning"></div>
+                            <div class="cardbox-body"><small>Av. Universidad 1001, Chamilpa Cuernavaca Morelos, 62209 México Tel: 329 70000 ext. 3453</small>
+                          </div>
+                           </div>
+                          <div class="ml-auto mb-3""><img class="wd-sm rounded-circle img-thumbnail"  src="{{asset('bundles/reporte/assets/img/12345.png')}}" alt="user"></div>
+                          <div>
+                        </div>                 
+                       </div>
+                    </div>              
+                </div>  
+            </div>  
+        </div>
+{{ form_start(edit_form) }}
+        <div class="cardbox">       
+                <div class="cardbox-body">                   
+                    <fieldset>
+                        <div class="form-group row">    
+                            <label class="col-sm-2 col-form-label">Nombre del Encargado</label>
+                            <div class="col-sm-6 rel-wrapper ui-datepicker ui-datepicker-popup dp-theme-info" id="example-datepicker-container-4" >
+                                {{ form_widget(edit_form.nombres) }}                                                   
+                            </div>
+                        </div>  
+                    </fieldset> 
+                    <fieldset>
+                        <div class="form-group row">    
+                            <label class="col-sm-2 col-form-label">Tel. Cel</label>
+                            <div class="col-sm-6 rel-wrapper ui-datepicker ui-datepicker-popup dp-theme-info" id="example-datepicker-container-4" >
+                                {{ form_widget(edit_form.telefono) }}   
+                                                 
+                            </div>
+                        </div>  
+                    </fieldset>
+                     <fieldset>
+                        <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">email</label>                      
+                            <div class="col-sm-6 " >
+                                 {{ form_widget(edit_form.eMail) }}
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">Tel. Extencion</label>                      
+                            <div class="col-sm-6 " >
+                                 {{ form_widget(edit_form.telExtencion) }}
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Turno</label>                      
+                            <div class="col-sm-6 " >
+                                {{ form_widget(edit_form.turno) }}
+                            </div>
+                        </div>
+                    </fieldset>
+                     <div class="cardbox-body text-center">
+                        <a class="mb-4 btn btn-lg btn-gradient wd-sm btn-warning" href="{{ path('encargado_edit', { 'id': encargado.id }) }}">EDITAR</a>                    
+                    {{ form_end(edit_form) }}
+                     
+            </div>
+        </div>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+{% endblock %}
 
-    <ul>
-        <li>
-            <a href="{{ path('encargado_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+{% block Javascript %}
+
+    
 {% endblock %}

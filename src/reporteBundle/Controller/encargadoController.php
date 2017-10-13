@@ -78,7 +78,7 @@ class encargadoController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('encargado_edit', array('id' => $encargado->getId()));
+            return $this->redirectToRoute('encargado_show', array('id' => $encargado->getId()));
         }
 
         return $this->render('encargado/edit.html.twig', array(

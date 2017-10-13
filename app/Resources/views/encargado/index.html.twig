@@ -1,9 +1,30 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h1>Encargados list</h1>
-
-    <table>
+    <div class="cardbox">                
+        <div class="cardbox-heading">
+            <ul class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+                <li class="breadcrumb-item active"><span>Encargados</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="cardbox"> 
+<div class="col-sm-12">
+    <div class="cardbox text-white bg-gradient-primary b0">
+        <div class="cardbox-body text-center">           
+            <div class="text-bold display-1">listado de Encargados</div>
+        <br></br>
+             <a class="btn btn-secondary btn-gradient wd-sm btn-danger" href="{{ path('encargado_new') }}">Nuevo Encargado</a>
+    </div>
+</div> 
+</div> 
+</div>
+<div class="cardbox"> 
+<div class="container">     
+    <div class="cardbox-body clearfix">
+        <div class="table-responsive">
+            <table class=" table table table-striped my-4 " id="datatable2">
         <thead>
             <tr>
                 <th>Id</th>
@@ -25,23 +46,23 @@
                 <td>{{ encargado.telExtencion }}</td>
                 <td>{{ encargado.turno }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('encargado_show', { 'id': encargado.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('encargado_edit', { 'id': encargado.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('encargado_new') }}">Create a new encargado</a>
-        </li>
-    </ul>
+                        <ul>                          
+                            <a class="btn btn-outline-primary" href="{{ path('encargado_show', { 'id': encargado.id }) }}">ver</a>
+                            <a class="btn btn-outline-danger" href="{{ path('encargado_edit', { 'id': encargado.id }) }}">editar</a>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
 {% endblock %}
+{% block Javascript %}
+
+
+  
+{% endblock Javascript %}
+

@@ -1,0 +1,24 @@
+profesores_index:
+    path:     /
+    defaults: { _controller: "AdirDanielBundle:Profesores:index" }
+    methods:  GET
+
+profesores_show:
+    path:     /{id}/show
+    defaults: { _controller: "AdirDanielBundle:Profesores:show" }
+    methods:  GET
+
+profesores_new:
+    path:     /new
+    defaults: { _controller: "AdirDanielBundle:Profesores:new" }
+    methods:  [GET, POST]
+
+profesores_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AdirDanielBundle:Profesores:edit" }
+    methods:  [GET, POST]
+
+profesores_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AdirDanielBundle:Profesores:delete" }
+    methods:  DELETE

@@ -1,0 +1,20 @@
+Adir\DanielBundle\Entity\Profesores:
+    type: entity
+    table: null
+    repositoryClass: Adir\DanielBundle\Repository\ProfesoresRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombres:
+            type: string
+            length: '100'
+        tel:
+            type: integer
+        eMail:
+            type: string
+            length: '30'
+    lifecycleCallbacks: {  }

@@ -1,0 +1,24 @@
+materia_index:
+    path:     /
+    defaults: { _controller: "AdirDanielBundle:Materia:index" }
+    methods:  GET
+
+materia_show:
+    path:     /{id}/show
+    defaults: { _controller: "AdirDanielBundle:Materia:show" }
+    methods:  GET
+
+materia_new:
+    path:     /new
+    defaults: { _controller: "AdirDanielBundle:Materia:new" }
+    methods:  [GET, POST]
+
+materia_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AdirDanielBundle:Materia:edit" }
+    methods:  [GET, POST]
+
+materia_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AdirDanielBundle:Materia:delete" }
+    methods:  DELETE

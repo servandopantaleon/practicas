@@ -1,0 +1,25 @@
+Daniel\TonerBundle\Entity\Tonerdaniel:
+    type: entity
+    table: null
+    repositoryClass: Daniel\TonerBundle\Repository\TonerdanielRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        noToner:
+            type: integer
+            column: NoToner
+        observaciones:
+            type: string
+            length: 255
+        fechaEntrega:
+            type: datetime
+    manyToOne : 
+        alumnos : 
+            targetEntity :  reporteBundle\Entity\alumnos 
+        encargado : 
+            targetEntity :  reporteBundle\Entity\encargado         
+    lifecycleCallbacks: {  }

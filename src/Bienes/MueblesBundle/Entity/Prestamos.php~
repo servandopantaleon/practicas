@@ -1,0 +1,142 @@
+<?php
+
+namespace Bienes\MueblesBundle\Entity;
+
+/**
+ * Prestamos
+ */
+class Prestamos
+{
+    /**
+     * @var int
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     */
+    private $fechaInicio;
+
+    /**
+     * @var \DateTime
+     */
+    private $fechaFin;
+
+    /**
+     * @var bool
+     */
+    private $atendido;
+
+    /**
+     * @var string
+     */
+    private $ubicacion;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set fechaInicio
+     *
+     * @param \DateTime $fechaInicio
+     *
+     * @return Prestamos
+     */
+    public function setFechaInicio($fechaInicio)
+    {
+        $this->fechaInicio = $fechaInicio;
+
+        return $this;
+    }
+
+    /**
+     * Get fechaInicio
+     *
+     * @return \DateTime
+     */
+    public function getFechaInicio()
+    {
+        return $this->fechaInicio;
+    }
+
+    /**
+     * Set fechaFin
+     *
+     * @param \DateTime $fechaFin
+     *
+     * @return Prestamos
+     */
+    public function setFechaFin($fechaFin)
+    {
+        $this->fechaFin = $fechaFin;
+
+        return $this;
+    }
+
+    /**
+     * Get fechaFin
+     *
+     * @return \DateTime
+     */
+    public function getFechaFin()
+    {
+        return $this->fechaFin;
+    }
+
+    /**
+     * Set atendido
+     *
+     * @param boolean $atendido
+     *
+     * @return Prestamos
+     */
+    public function setAtendido($atendido)
+    {
+        $this->atendido = $atendido;
+
+        return $this;
+    }
+
+    /**
+     * Get atendido
+     *
+     * @return bool
+     */
+    public function getAtendido()
+    {
+        return $this->atendido;
+    }
+
+    /**
+     * Set ubicacion
+     *
+     * @param string $ubicacion
+     *
+     * @return Prestamos
+     */
+    public function setUbicacion($ubicacion)
+    {
+        $this->ubicacion = $ubicacion;
+
+        return $this;
+    }
+
+    /**
+     * Get ubicacion
+     *
+     * @return string
+     */
+    public function getUbicacion()
+    {
+        return $this->ubicacion;
+    }
+}
+

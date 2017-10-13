@@ -20,6 +20,9 @@
       <parameter key="reporteBundle">reporteBundle\reporteBundle</parameter>
       <parameter key="holaBundle">holaBundle\holaBundle</parameter>
       <parameter key="InventarioBundle">Inventario\Bundle\InventarioBundle</parameter>
+      <parameter key="DanielTonerBundle">Daniel\TonerBundle\DanielTonerBundle</parameter>
+      <parameter key="BienesMueblesBundle">Bienes\MueblesBundle\BienesMueblesBundle</parameter>
+      <parameter key="AdirDanielBundle">Adir\DanielBundle\AdirDanielBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -81,6 +84,21 @@
         <parameter key="parent">null</parameter>
         <parameter key="path">/var/www/html/practicas/danielyadir/src/Inventario/Bundle</parameter>
         <parameter key="namespace">Inventario\Bundle</parameter>
+      </parameter>
+      <parameter key="DanielTonerBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/var/www/html/practicas/danielyadir/src/Daniel/TonerBundle</parameter>
+        <parameter key="namespace">Daniel\TonerBundle</parameter>
+      </parameter>
+      <parameter key="BienesMueblesBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/var/www/html/practicas/danielyadir/src/Bienes/MueblesBundle</parameter>
+        <parameter key="namespace">Bienes\MueblesBundle</parameter>
+      </parameter>
+      <parameter key="AdirDanielBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/var/www/html/practicas/danielyadir/src/Adir/DanielBundle</parameter>
+        <parameter key="namespace">Adir\DanielBundle</parameter>
       </parameter>
       <parameter key="DebugBundle" type="collection">
         <parameter key="parent">null</parameter>
@@ -620,7 +638,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>aIzLXvLEvQrjLniWtrgKcl</argument>
+      <argument>iMOb07+NQBY0ToK67GtIr2</argument>
       <argument>/var/www/html/practicas/danielyadir/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -630,7 +648,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>aIzLXvLEvQrjLniWtrgKcl</argument>
+      <argument>iMOb07+NQBY0ToK67GtIr2</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -2180,12 +2198,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>59cd907c733636.43341726</argument>
+      <argument>59e0125f14e357.27351232</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>59cd907c733636.43341726</argument>
+      <argument>59e0125f14e357.27351232</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -2376,6 +2394,18 @@
         <argument>Inventario</argument>
       </call>
       <call method="addPath">
+        <argument>/var/www/html/practicas/danielyadir/src/Daniel/TonerBundle/Resources/views</argument>
+        <argument>DanielToner</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/practicas/danielyadir/src/Bienes/MueblesBundle/Resources/views</argument>
+        <argument>BienesMuebles</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/practicas/danielyadir/src/Adir/DanielBundle/Resources/views</argument>
+        <argument>AdirDaniel</argument>
+      </call>
+      <call method="addPath">
         <argument>/var/www/html/practicas/danielyadir/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
@@ -2529,6 +2559,18 @@
       <call method="addPath">
         <argument>/var/www/html/practicas/danielyadir/src/Inventario/Bundle/Resources/views</argument>
         <argument>Inventario</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/practicas/danielyadir/src/Daniel/TonerBundle/Resources/views</argument>
+        <argument>DanielToner</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/practicas/danielyadir/src/Bienes/MueblesBundle/Resources/views</argument>
+        <argument>BienesMuebles</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/practicas/danielyadir/src/Adir/DanielBundle/Resources/views</argument>
+        <argument>AdirDaniel</argument>
       </call>
       <call method="addPath">
         <argument>/var/www/html/practicas/danielyadir/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
@@ -2861,6 +2903,9 @@
         <argument type="collection">
           <argument key="reporteBundle">reporteBundle\Entity</argument>
           <argument key="InventarioBundle">Inventario\Bundle\Entity</argument>
+          <argument key="DanielTonerBundle">Daniel\TonerBundle\Entity</argument>
+          <argument key="BienesMueblesBundle">Bienes\MueblesBundle\Entity</argument>
+          <argument key="AdirDanielBundle">Adir\DanielBundle\Entity</argument>
         </argument>
       </call>
       <call method="setMetadataCacheImpl">
@@ -2904,6 +2949,9 @@
       <argument type="collection">
         <argument key="/var/www/html/practicas/danielyadir/src/reporteBundle/Resources/config/doctrine">reporteBundle\Entity</argument>
         <argument key="/var/www/html/practicas/danielyadir/src/Inventario/Bundle/Resources/config/doctrine">Inventario\Bundle\Entity</argument>
+        <argument key="/var/www/html/practicas/danielyadir/src/Daniel/TonerBundle/Resources/config/doctrine">Daniel\TonerBundle\Entity</argument>
+        <argument key="/var/www/html/practicas/danielyadir/src/Bienes/MueblesBundle/Resources/config/doctrine">Bienes\MueblesBundle\Entity</argument>
+        <argument key="/var/www/html/practicas/danielyadir/src/Adir/DanielBundle/Resources/config/doctrine">Adir\DanielBundle\Entity</argument>
       </argument>
       <call method="setGlobalBasename">
         <argument>mapping</argument>
@@ -2917,6 +2965,18 @@
       <call method="addDriver">
         <argument type="service" id="doctrine.orm.default_yml_metadata_driver"/>
         <argument>Inventario\Bundle\Entity</argument>
+      </call>
+      <call method="addDriver">
+        <argument type="service" id="doctrine.orm.default_yml_metadata_driver"/>
+        <argument>Daniel\TonerBundle\Entity</argument>
+      </call>
+      <call method="addDriver">
+        <argument type="service" id="doctrine.orm.default_yml_metadata_driver"/>
+        <argument>Bienes\MueblesBundle\Entity</argument>
+      </call>
+      <call method="addDriver">
+        <argument type="service" id="doctrine.orm.default_yml_metadata_driver"/>
+        <argument>Adir\DanielBundle\Entity</argument>
       </call>
     </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_metadata_cache" class="Doctrine\Common\Cache\ArrayCache">
@@ -3417,7 +3477,7 @@
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>fBwjgNosYu</argument>
       <argument>0</argument>
-      <argument>aIzLXvLEvQrjLniWtrgKcl</argument>
+      <argument>iMOb07+NQBY0ToK67GtIr2</argument>
       <argument>/var/www/html/practicas/danielyadir/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3425,7 +3485,7 @@
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>hzzgti+Nez</argument>
       <argument>0</argument>
-      <argument>aIzLXvLEvQrjLniWtrgKcl</argument>
+      <argument>iMOb07+NQBY0ToK67GtIr2</argument>
       <argument>/var/www/html/practicas/danielyadir/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3433,7 +3493,7 @@
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>2FcH5cVthk</argument>
       <argument>0</argument>
-      <argument>aIzLXvLEvQrjLniWtrgKcl</argument>
+      <argument>iMOb07+NQBY0ToK67GtIr2</argument>
       <argument>/var/www/html/practicas/danielyadir/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3441,7 +3501,7 @@
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>2HycbWX43R</argument>
       <argument>0</argument>
-      <argument>aIzLXvLEvQrjLniWtrgKcl</argument>
+      <argument>iMOb07+NQBY0ToK67GtIr2</argument>
       <argument>/var/www/html/practicas/danielyadir/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>

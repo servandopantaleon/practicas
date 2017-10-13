@@ -1,0 +1,15 @@
+Adir\DanielBundle\Entity\Materia:
+    type: entity
+    table: null
+    repositoryClass: Adir\DanielBundle\Repository\MateriaRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: string
+            length: '50'
+    lifecycleCallbacks: {  }

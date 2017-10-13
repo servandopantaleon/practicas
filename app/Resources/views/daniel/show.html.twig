@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Daniel</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ daniel.id }}</td>
+            </tr>
+            <tr>
+                <th>Horainicio</th>
+                <td>{% if daniel.horaInicio %}{{ daniel.horaInicio|date('H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Horafin</th>
+                <td>{% if daniel.horaFin %}{{ daniel.horaFin|date('H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Software</th>
+                <td>{{ daniel.software }}</td>
+            </tr>
+            <tr>
+                <th>Totalalumnos</th>
+                <td>{{ daniel.totalAlumnos }}</td>
+            </tr>
+            <tr>
+                <th>Observaciones</th>
+                <td>{{ daniel.observaciones }}</td>
+            </tr>
+            <tr>
+                <th>Fecha</th>
+                <td>{% if daniel.fecha %}{{ daniel.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('daniel_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('daniel_edit', { 'id': daniel.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

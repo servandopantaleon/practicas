@@ -1,0 +1,31 @@
+Adir\DanielBundle\Entity\daniel:
+    type: entity
+    table: null
+    repositoryClass: Adir\DanielBundle\Repository\danielRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        horaInicio:
+            type: time
+        horaFin:
+            type: time
+        software:
+            type: string
+            length: '40'
+        totalAlumnos:
+            type: integer
+        observaciones:
+            type: string
+            length: 255
+        fecha:
+            type: datetime
+    manyToOne : 
+        Materia : 
+            targetEntity :  Adir\DanielBundle\Entity\Materia
+        Profesores : 
+            targetEntity :  Adir\DanielBundle\Entity\Profesores        
+    lifecycleCallbacks: {  }

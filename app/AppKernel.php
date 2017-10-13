@@ -19,6 +19,11 @@ class AppKernel extends Kernel
             new reporteBundle\reporteBundle(),
             new holaBundle\holaBundle(),
             new Inventario\Bundle\InventarioBundle(),
+            // new daniel\controltonerBundle\danielcontroltonerBundle(),
+            new Daniel\TonerBundle\DanielTonerBundle(),
+            new Bienes\MueblesBundle\BienesMueblesBundle(),
+            // new Adir\danielBundle\AdirdanielBundle(),
+            new Adir\DanielBundle\AdirDanielBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

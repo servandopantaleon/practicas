@@ -1,0 +1,4 @@
+services:
+#    adir_daniel.example:
+#        class: Adir\DanielBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

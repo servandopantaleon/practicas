@@ -1,44 +1,112 @@
+
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h1>Equipo</h1>
+   <div class="cardbox">                
+        <div class="cardbox-heading">
+        <ul class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ path('equipo_index') }}">Equipos</a></li>
+            <li class="breadcrumb-item active"><span>Detalle del Equipo</span></li>
+        </ul>
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="cardbox">
+                    <div class="pb-1 bg-gradient-success"></div>
+                    <div class="cardbox-body">
+                        <div class="d-flex">
+                         {# <div class="mr-4"><img class="shadow-z5 thumb80 rounded" src="{{asset('bundles/reporte/assets/img/user/123.png')}}" alt="user"></div>#}
+                          <div class="mb-3"><img class="wd-sm rounded-circle img-thumbnail" src="{{asset('bundles/reporte/assets/img/user/123.png')}}" alt="user"></div>
+                          <div class="cardbox-body text-center">
+                            <div class="h3 my-2"><strong>INSTITUTO DE INVESTIGACIÓN EN HUMANIDADES Y CIENCIAS SOCIALES</strong></div>
+                                <div class="pb-1 bg-gradient-success"></div>
+                            <p>SECRETARIA EJECUTUVA/ CENTRO DE COMPUTO/ SOPORTE TECNICO</p>
+                                <div class="pb-1 bg-gradient-success"></div>
+                            <div class="cardbox-body"><small>Av. Universidad 1001, Chamilpa Cuernavaca Morelos, 62209 México Tel: 329 70000 ext. 3453</small>
+                          </div>
+                           </div>
+                          <div class="ml-auto mb-3""><img class="wd-sm rounded-circle img-thumbnail"  src="{{asset('bundles/reporte/assets/img/12345.png')}}" alt="user"></div>
+                          <div>
+                        </div>                 
+                       </div>
+                    </div>              
+                </div>  
+            </div>  
+        </div>
+        <div class="cardbox">        
+                <div class="cardbox-body">  
+                    <fieldset>
+                        <div class="form-group row">    
+                            <label class="col-sm-2 col-form-label">id</label>
+                            <input class="col-sm-6 form-control" type="text" value="{{ equipo.id }}" disabled="">  
+                        </div>
+                         
+                    </fieldset>             
+                    <fieldset>
+                        <div class="form-group row">    
+                            <label class="col-sm-2 col-form-label">Nombre del equipo</label>
+                            <input class="col-sm-6 form-control" type="text" value="{{ equipo.nombre }}" disabled="">                                                  
+                            </div>
+                          
+                    </fieldset> 
+                    <fieldset>
+                        <div class="form-group row">    
+                            <label class="col-sm-2 col-form-label">Marca</label>
+                            <input class="col-sm-6 form-control" type="text" value="{{ equipo.marca }}" disabled=""> </div>
+                          
+                    </fieldset>
+                     <fieldset>
+                        <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">Modelo</label>                      
+                            <input class="col-sm-6 form-control" type="text" value="{{ equipo.Modelo }}" disabled="">
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">No. Inventario</label>                      
+                            <input class="col-sm-6 form-control" type="text" value="{{ equipo.noInventario }}" disabled="">
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Sistema Operativo</label>                      
+                            <input class="col-sm-6 form-control" type="text" value="{{ equipo.sO }}" disabled="">
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-group row">    
+                            <label class="col-sm-2 col-form-label">Ethernet</label>
+                            <input class="col-sm-6 form-control" type="text" value="{{ equipo.ethernet }}" disabled="">
+                        </div>  
+                    </fieldset>  
+                    <fieldset>
+                        <div class="form-group row">    
+                            <label class="col-sm-2 col-form-label">Mac</label>
+                            <input class="col-sm-6 form-control" type="text" value="{{ equipo.mac }}" disabled="">
+                        </div>  
+                    </fieldset>
+                    <div class="cardbox-body text-center">
+                        <a class="mb-4 btn btn-lg btn-gradient wd-sm btn-warning" href="{{ path('equipo_edit', { 'id': equipo.id }) }}">EDITAR</a>
+                        {{ form_start(delete_form) }}
+                    
+                        <input class="mb-4 btn btn-lg btn-gradient wd-sm btn-danger" type="submit" value="ELIMINAR" />
+                    </div>
+                    {{ form_end(delete_form) }}
+                    </div>    
+                </div>
+                <div class="pb-1 bg-gradient-success"></div> 
+                 </div> 
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ equipo.id }}</td>
-            </tr>
-            <tr>
-                <th>Noinventario</th>
-                <td>{{ equipo.noInventario }}</td>
-            </tr>
-            <tr>
-                <th>So</th>
-                <td>{{ equipo.sO }}</td>
-            </tr>
-            <tr>
-                <th>Ethernet</th>
-                <td>{{ equipo.ethernet }}</td>
-            </tr>
-            <tr>
-                <th>Mac</th>
-                <td>{{ equipo.mac }}</td>
-            </tr>
-        </tbody>
-    </table>
+          
 
-    <ul>
-        <li>
-            <a href="{{ path('equipo_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('equipo_edit', { 'id': equipo.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
 {% endblock %}
+
+{% block Javascript %}
+
+    
+{% endblock %}
+
+          
+

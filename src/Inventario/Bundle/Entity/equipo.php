@@ -143,5 +143,91 @@ class equipo
     {
         return (string) $this->noInventario;
     }
-}
+    /**
+     * @var \Inventario\Bundle\Entity\Modelo
+     */
+    private $Modelo;
 
+    /**
+     * @var \Inventario\Bundle\Entity\marca
+     */
+    private $marca;
+
+
+    /**
+     * Set modelo
+     *
+     * @param \Inventario\Bundle\Entity\Modelo $modelo
+     *
+     * @return equipo
+     */
+    public function setModelo(\Inventario\Bundle\Entity\Modelo $modelo = null)
+    {
+        $this->Modelo = $modelo;
+
+        return $this;
+    }
+
+    /**
+     * Get modelo
+     *
+     * @return \Inventario\Bundle\Entity\Modelo
+     */
+    public function getModelo()
+    {
+        return $this->Modelo;
+    }
+
+    /**
+     * Set marca
+     *
+     * @param \Inventario\Bundle\Entity\marca $marca
+     *
+     * @return equipo
+     */
+    public function setMarca(\Inventario\Bundle\Entity\marca $marca = null)
+    {
+        $this->marca = $marca;
+
+        return $this;
+    }
+
+    /**
+     * Get marca
+     *
+     * @return \Inventario\Bundle\Entity\marca
+     */
+    public function getMarca()
+    {
+        return $this->marca;
+    }
+    /**
+     * @var string
+     */
+    private $nombre;
+
+
+    /**
+     * Set nombre
+     *
+     * @param string $nombre
+     *
+     * @return equipo
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * Get nombre
+     *
+     * @return string
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+}

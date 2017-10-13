@@ -1,0 +1,24 @@
+prestamos_index:
+    path:     /
+    defaults: { _controller: "BienesMueblesBundle:Prestamos:index" }
+    methods:  GET
+
+prestamos_show:
+    path:     /{id}/show
+    defaults: { _controller: "BienesMueblesBundle:Prestamos:show" }
+    methods:  GET
+
+prestamos_new:
+    path:     /new
+    defaults: { _controller: "BienesMueblesBundle:Prestamos:new" }
+    methods:  [GET, POST]
+
+prestamos_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BienesMueblesBundle:Prestamos:edit" }
+    methods:  [GET, POST]
+
+prestamos_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BienesMueblesBundle:Prestamos:delete" }
+    methods:  DELETE

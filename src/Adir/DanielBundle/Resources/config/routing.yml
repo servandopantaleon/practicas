@@ -1,0 +1,5 @@
+
+
+adir_daniel_homepage:
+    path:     /
+    defaults: { _controller: AdirDanielBundle:Default:index }

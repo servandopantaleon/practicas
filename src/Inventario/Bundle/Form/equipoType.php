@@ -13,7 +13,14 @@ class equipoType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('noInventario')->add('sO')->add('ethernet')->add('mac');
+        $builder
+        ->add('noInventario')
+        ->add('sO')
+        ->add('ethernet')
+        ->add('Modelo')
+        ->add('marca')
+        ->add('nombre')
+        ->add('mac');
     }
     
     /**

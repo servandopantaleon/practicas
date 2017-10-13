@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Tonerdaniel</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ tonerdaniel.id }}</td>
+            </tr>
+            <tr>
+                <th>Notoner</th>
+                <td>{{ tonerdaniel.noToner }}</td>
+            </tr>
+            <tr>
+                <th>Observaciones</th>
+                <td>{{ tonerdaniel.observaciones }}</td>
+            </tr>
+            <tr>
+                <th>Fechaentrega</th>
+                <td>{{ tonerdaniel.fechaEntrega|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tonerdaniel_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('tonerdaniel_edit', { 'id': tonerdaniel.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

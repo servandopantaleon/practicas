@@ -1,10 +1,30 @@
 {% extends 'base.html.twig' %}
-
 {% block content %}
-    <h1>Marcas list</h1>
-
-    <table>
-        <thead>
+    <div class="cardbox">                
+        <div class="cardbox-heading">
+            <ul class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+                <li class="breadcrumb-item active"><span>Marca</span></li>
+            </ul>
+        </div>
+    </div>
+<div class="cardbox">    
+<div class="col-sm-12">
+    <div class="cardbox text-white bg-gradient-primary b0">
+        <div class="cardbox-body text-center">           
+            <div class="text-bold display-1">listado de Marcas</div>
+        <br></br>
+             <a class="btn btn-secondary btn-gradient wd-sm btn-danger" href="{{ path('marca_new') }}">Nueva Marca</a>
+    </div>
+</div> 
+</div>
+</div>
+<div class="cardbox"> 
+<div class="container">     
+    <div class="cardbox-body clearfix">
+        <div class="table-responsive">
+            <table class=" table table table-striped my-4 " id="datatable2">
+                <thead>
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
@@ -14,26 +34,21 @@
         <tbody>
         {% for marca in marcas %}
             <tr>
-                <td><a href="{{ path('marca_show', { 'id': marca.id }) }}">{{ marca.id }}</a></td>
+                <td><a href="{{ path('modelo_show', { 'id': modelo.id }) }}">{{ marca.id }}</a></td>
                 <td>{{ marca.nombre }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('marca_show', { 'id': marca.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('marca_edit', { 'id': marca.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('marca_new') }}">Create a new marca</a>
-        </li>
-    </ul>
+                 <td>
+                        <ul>                          
+                            <a class="btn btn-outline-primary" href="{{ path('marca_show', { 'id': marca.id }) }}">ver</a>
+                            <a class="btn btn-outline-danger" href="{{ path('marca_edit', { 'id': marca.id }) }}">editar</a>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
 {% endblock %}
+

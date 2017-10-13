@@ -1,0 +1,24 @@
+tonerdaniel_index:
+    path:     /
+    defaults: { _controller: "DanielTonerBundle:Tonerdaniel:index" }
+    methods:  GET
+
+tonerdaniel_show:
+    path:     /{id}/show
+    defaults: { _controller: "DanielTonerBundle:Tonerdaniel:show" }
+    methods:  GET
+
+tonerdaniel_new:
+    path:     /new
+    defaults: { _controller: "DanielTonerBundle:Tonerdaniel:new" }
+    methods:  [GET, POST]
+
+tonerdaniel_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "DanielTonerBundle:Tonerdaniel:edit" }
+    methods:  [GET, POST]
+
+tonerdaniel_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "DanielTonerBundle:Tonerdaniel:delete" }
+    methods:  DELETE
