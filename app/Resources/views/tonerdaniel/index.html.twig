@@ -1,10 +1,30 @@
 {% extends 'base.html.twig' %}
-
 {% block content %}
-    <h1>Tonerdaniels list</h1>
-
-    <table>
-        <thead>
+    <div class="cardbox">                
+        <div class="cardbox-heading">
+            <ul class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+                <li class="breadcrumb-item active"><span>Control de Toners</span></li>
+            </ul>
+        </div>
+    </div>
+<div class="cardbox">    
+<div class="col-sm-12">
+    <div class="cardbox text-white bg-gradient-primary b0">
+        <div class="cardbox-body text-center">           
+            <div class="text-bold display-1">listado de Toners</div>
+        <br></br>
+             <a class="btn btn-secondary btn-gradient wd-sm btn-danger" href="{{ path('tonerdaniel_new') }}">Prestamo de Toner</a>
+    </div>
+</div> 
+</div>
+</div>
+<div class="cardbox"> 
+<div class="container">     
+    <div class="cardbox-body clearfix">
+        <div class="table-responsive">
+            <table class=" table table table-striped my-4 " id="datatable2">
+                <thead>
             <tr>
                 <th>Id</th>
                 <th>Notoner</th>
@@ -21,23 +41,22 @@
                 <td>{{ tonerdaniel.observaciones }}</td>
                 <td>{% if tonerdaniel.fechaEntrega %}{{ tonerdaniel.fechaEntrega|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('tonerdaniel_show', { 'id': tonerdaniel.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('tonerdaniel_edit', { 'id': tonerdaniel.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('tonerdaniel_new') }}">Create a new tonerdaniel</a>
-        </li>
-    </ul>
+                        <ul>                          
+                            <a class="btn btn-outline-primary" href="{{ path('tonerdaniel_show', { 'id': tonerdaniel.id }) }}">ver</a>
+                            <a class="btn btn-outline-danger" href="{{ path('tonerdaniel_edit', { 'id': tonerdaniel.id }) }}">editar</a>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
 {% endblock %}
+{% block Javascript %}
+
+
+  
+{% endblock Javascript %}

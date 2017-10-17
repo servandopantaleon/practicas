@@ -1,40 +1,95 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h1>Tonerdaniel</h1>
+   <div class="cardbox">                
+        <div class="cardbox-heading">
+        <ul class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ path('tonerdaniel_index') }}">Contol de toner</a></li>
+            <li class="breadcrumb-item active"><span>detalle del Toner</span></li>
+        </ul>
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="cardbox">
+                    <div class="pb-1 bg-gradient-success"></div>
+                    <div class="cardbox-body">
+                        <div class="d-flex">
+                         {# <div class="mr-4"><img class="shadow-z5 thumb80 rounded" src="{{asset('bundles/reporte/assets/img/user/123.png')}}" alt="user"></div>#}
+                          <div class="mb-3"><img class="wd-sm rounded-circle img-thumbnail" src="{{asset('bundles/reporte/assets/img/user/123.png')}}" alt="user"></div>
+                          <div class="cardbox-body text-center">
+                            <div class="h3 my-2"><strong>INSTITUTO DE INVESTIGACIÓN EN HUMANIDADES Y CIENCIAS SOCIALES</strong></div>
+                                <div class="pb-1 bg-gradient-success"></div>
+                            <p>SECRETARIA EJECUTUVA/ CENTRO DE COMPUTO/ CONTROL DE TONER</p>
+                                <div class="pb-1 bg-gradient-success"></div>
+                            <div class="cardbox-body"><small>Av. Universidad 1001, Chamilpa Cuernavaca Morelos, 62209 México Tel: 329 70000 ext. 3453</small>
+                          </div>
+                           </div>
+                          <div class="ml-auto mb-3""><img class="wd-sm rounded-circle img-thumbnail"  src="{{asset('bundles/reporte/assets/img/12345.png')}}" alt="user"></div>
+                          <div>
+                        </div>                 
+                       </div>
+                    </div>              
+                </div>  
+            </div>  
+        </div>
+        <div class="cardbox">       
+                <div class="cardbox-body">  
+                    <fieldset>
+                        <div class="form-group row">    
+                            <label class="col-sm-2 col-form-label">id</label>
+                            <input class="col-sm-6 form-control" type="text" value="{{ tonerdaniel.id }}" disabled="">  
+                        </div>
+                         
+                    </fieldset>   
+                                        <fieldset>
+                        <div class="form-group row">    
+                            <label class="col-sm-2 col-form-label">Nombre del Solicitante</label>
+                            <input class="col-sm-6 form-control" type="text" value="{{ tonerdaniel.alumnos }}" disabled="">                                                  
+                            </div>
+                          
+                    </fieldset>          
+                    <fieldset>
+                        <div class="form-group row">    
+                            <label class="col-sm-2 col-form-label">No. de Toner</label>
+                            <input class="col-sm-6 form-control" type="text" value="{{ tonerdaniel.noToner }}" disabled="">                                                  
+                            </div>
+                          
+                    </fieldset> 
+                    <fieldset>
+                        <div class="form-group row">    
+                            <label class="col-sm-2 col-form-label">Observaciones</label>
+                            <input class="col-sm-6 form-control" type="text" value="{{ tonerdaniel.observaciones }}" disabled="">   
+                                                 
+                            </div>
+                          
+                    </fieldset>
+                     <fieldset>
+                        <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">Fecha de entrega</label>                      
+                            <input class="col-sm-6 form-control" type="text" value="{{ tonerdaniel.fechaEntrega|date('Y-m-d H:i:s') }}" disabled="">
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">Atendió</label>                      
+                            <input class="col-sm-6 form-control" type="text" value="{{ tonerdaniel.encargado }}" disabled="">
+                        </div>
+                    </fieldset>
+                    <div class="cardbox-body text-center">
+                        <a class="mb-4 btn btn-lg btn-gradient wd-sm btn-warning" href="{{ path('tonerdaniel_edit', { 'id': tonerdaniel.id }) }}">EDITAR</a>
+                        {{ form_start(delete_form) }}
+                    
+                        <input class="mb-4 btn btn-lg btn-gradient wd-sm btn-danger" type="submit" value="ELIMINAR" />
+                    </div>
+                    {{ form_end(delete_form) }}
+                    </div>    
+                </div>
+                <div class="pb-1 bg-gradient-success"></div> 
+                 </div> 
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ tonerdaniel.id }}</td>
-            </tr>
-            <tr>
-                <th>Notoner</th>
-                <td>{{ tonerdaniel.noToner }}</td>
-            </tr>
-            <tr>
-                <th>Observaciones</th>
-                <td>{{ tonerdaniel.observaciones }}</td>
-            </tr>
-            <tr>
-                <th>Fechaentrega</th>
-                <td>{{ tonerdaniel.fechaEntrega|date('Y-m-d H:i:s') }}</td>
-            </tr>
-        </tbody>
-    </table>
+          
 
-    <ul>
-        <li>
-            <a href="{{ path('tonerdaniel_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('tonerdaniel_edit', { 'id': tonerdaniel.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
 {% endblock %}
+

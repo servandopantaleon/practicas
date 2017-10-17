@@ -33,7 +33,7 @@ class MateriaController extends Controller
      */
     public function newAction(Request $request)
     {
-        $materium = new Materium();
+        $materium = new Materia();
         $form = $this->createForm('Adir\DanielBundle\Form\MateriaType', $materium);
         $form->handleRequest($request);
 
