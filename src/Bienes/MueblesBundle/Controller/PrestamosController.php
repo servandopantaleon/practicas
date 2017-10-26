@@ -33,7 +33,7 @@ class PrestamosController extends Controller
      */
     public function newAction(Request $request)
     {
-        $prestamo = new Prestamo();
+        $prestamo = new Prestamos();
         $form = $this->createForm('Bienes\MueblesBundle\Form\PrestamosType', $prestamo);
         $form->handleRequest($request);
 

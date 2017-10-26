@@ -1,10 +1,30 @@
 {% extends 'base.html.twig' %}
-
 {% block content %}
-    <h1>Prestamos list</h1>
-
-    <table>
-        <thead>
+    <div class="cardbox">                
+        <div class="cardbox-heading">
+            <ul class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+                <li class="breadcrumb-item active"><span>Prestamos</span></li>
+            </ul>
+        </div>
+    </div>
+<div class="cardbox">    
+<div class="col-sm-12">
+    <div class="cardbox text-white bg-gradient-primary b0">
+        <div class="cardbox-body text-center">           
+            <div class="text-bold display-1">listado de Prestamos</div>
+        <br></br>
+             <a class="btn btn-secondary btn-gradient wd-sm btn-danger" href="{{ path('prestamos_new') }}">Nuevo Prestamo</a>
+    </div>
+</div> 
+</div>
+</div>
+<div class="cardbox"> 
+<div class="container">     
+    <div class="cardbox-body clearfix">
+        <div class="table-responsive">
+            <table class=" table table table-striped my-4 " id="datatable2">
+                <thead>
             <tr>
                 <th>Id</th>
                 <th>Fechainicio</th>
@@ -18,28 +38,27 @@
         {% for prestamo in prestamos %}
             <tr>
                 <td><a href="{{ path('prestamos_show', { 'id': prestamo.id }) }}">{{ prestamo.id }}</a></td>
-                <td>{% if prestamo.fechaInicio %}{{ prestamo.fechaInicio|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if prestamo.fechaFin %}{{ prestamo.fechaFin|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if prestamo.fechaInicio %}{{ prestamo.fechaInicio|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if prestamo.fechaFin %}{{ prestamo.fechaFin|date('Y-m-d') }}{% endif %}</td>
                 <td>{% if prestamo.atendido %}Yes{% else %}No{% endif %}</td>
                 <td>{{ prestamo.ubicacion }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('prestamos_show', { 'id': prestamo.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('prestamos_edit', { 'id': prestamo.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('prestamos_new') }}">Create a new prestamo</a>
-        </li>
-    </ul>
+                    <ul>                          
+                            <a class="btn btn-outline-primary" href="{{ path('prestamos_show', { 'id': prestamo.id }) }}">ver</a>
+                            <a class="btn btn-outline-danger" href="{{ path('prestamos_edit', { 'id': prestamo.id }) }}">editar</a>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+                </tbody>
+            </table>
+        </div>prestamo
+    </div>
+</div>
+</div>
 {% endblock %}
+{% block Javascript %}
+
+
+  
+{% endblock Javascript %}

@@ -11,11 +11,11 @@
             </tr>
             <tr>
                 <th>Fechainicio</th>
-                <td>{% if prestamo.fechaInicio %}{{ prestamo.fechaInicio|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if prestamo.fechaInicio %}{{ prestamo.fechaInicio|date('Y-m-d') }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Fechafin</th>
-                <td>{% if prestamo.fechaFin %}{{ prestamo.fechaFin|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if prestamo.fechaFin %}{{ prestamo.fechaFin|date('Y-m-d') }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Atendido</th>

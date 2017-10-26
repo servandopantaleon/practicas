@@ -10,9 +10,9 @@ Bienes\MueblesBundle\Entity\Prestamos:
                 strategy: AUTO
     fields:
         fechaInicio:
-            type: datetime
+            type: date
         fechaFin:
-            type: datetime
+            type: date
         atendido:
             type: boolean
         ubicacion:
