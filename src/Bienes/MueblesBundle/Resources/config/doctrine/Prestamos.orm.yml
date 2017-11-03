@@ -13,6 +13,7 @@ Bienes\MueblesBundle\Entity\Prestamos:
             type: date
         fechaFin:
             type: date
+            nullable: true
         atendido:
             type: boolean
         ubicacion:

@@ -25,9 +25,12 @@ class PrestamosType extends AbstractType
         ->add('fechaFin', DateType::class,array(
                'widget' => 'single_text',
             'format' => 'dd-MM-yyyy',
+            'required' => false,
+
             'attr' => array('class' => 'form-control input-inline datepicker',
                 'data-provide' => 'datepicker',
-                'data-date-format' => 'dd-mm-yyyy'
+                'data-date-format' => 'dd-mm-yyyy',
+                'required' => false
                 )))
         ->add('atendido')
         ->add('ubicacion')
