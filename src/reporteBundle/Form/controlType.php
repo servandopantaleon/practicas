@@ -17,13 +17,20 @@ class controlType extends AbstractType
         $builder
             ->add('descripcion')
             ->add('observaciones')
-            ->add('fechaInicio')
+            ->add('fechaInicio', DateTimeType::class,array(
+               'widget' => 'single_text',
+            'format' => 'dd-MM-yyyy',
+            'attr' => array('class' => 'form-control input-inline datepicker',
+                'data-provide' => 'datepicker',
+                'data-date-format' => 'dd-mm-yyyy'
+                )))
             ->add('fechaFin', DateTimeType::class,array(
-                'attr' => array(
-                    'class' => 'form-control input-inline datepicker',
-                    'data-provide' => 'datepicker',
-                    'data-date-format' => 'dd-MM-yyyy'
-                    )))
+               'widget' => 'single_text',
+            'format' => 'dd-MM-yyyy',
+            'attr' => array('class' => 'form-control input-inline datepicker',
+                'data-provide' => 'datepicker',
+                'data-date-format' => 'dd-mm-yyyy'
+                )))
             ->add('alumnos')
             ->add('encargado')
             ->add('equipo')
