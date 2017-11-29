@@ -1,47 +1,162 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <h1>Daniel</h1>
+{% block content %}
+   <div class="cardbox">                
+        <div class="cardbox-heading">
+        <ul class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ path('daniel_index') }}">Clases</a></li>
+            <li class="breadcrumb-item active"><span>detalle de la clase</span></li>
+        </ul>
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="cardbox">
+                    <div class="pb-1 bg-gradient-success"></div>
+                    <div class="cardbox-body">
+                        <div class="d-flex">
+                         {# <div class="mr-4"><img class="shadow-z5 thumb80 rounded" src="{{asset('bundles/reporte/assets/img/user/123.png')}}" alt="user"></div>#}
+                          <div class="mb-3"><img class="wd-sm rounded-circle img-thumbnail" src="{{asset('bundles/reporte/assets/img/user/123.png')}}" alt="user"></div>
+                          <div class="cardbox-body text-center">
+                            <div class="h3 my-2"><strong>INSTITUTO DE INVESTIGACIÓN EN HUMANIDADES Y CIENCIAS SOCIALES</strong></div>
+                                <div class="pb-1 bg-gradient-success"></div>
+                            <p>SECRETARIA EJECUTUVA/ CENTRO DE COMPUTO/ CLASES</p>
+                                <div class="pb-1 bg-gradient-success"></div>
+                            <div class="cardbox-body"><small>Av. Universidad 1001, Chamilpa Cuernavaca Morelos, 62209 México Tel: 329 70000 ext. 3453</small>
+                          </div>
+                           </div>
+                          <div class="ml-auto mb-3""><img class="wd-sm rounded-circle img-thumbnail"  src="{{asset('bundles/reporte/assets/img/12345.png')}}" alt="user"></div>
+                          <div>
+                        </div>                 
+                       </div>
+                    </div>              
+                </div>  
+            </div>  
+        </div>
+        <div class="cardbox">
+                 
+                <div class="cardbox-body">  
+                    <fieldset>
+                        <div class="form-group row">    
+                            <label class="col-sm-2 col-form-label">id</label>
+                            <input class="col-sm-6 form-control" type="text" value="{{ daniel.id }}" disabled="">  
+                        </div>
+                         
+                    </fieldset>             
+                    <fieldset>
+                        <div class="form-group row">    
+                            <label class="col-sm-2 col-form-label">Nombre del Profesor</label>
+                            <input class="col-sm-6 form-control" type="text" value="{{ daniel.Profesores }}" disabled="">                                                  
+                            </div>
+                          
+                    </fieldset> 
+                    <fieldset>
+                        <div class="form-group row">    
+                            <label class="col-sm-2 col-form-label">Materia</label>
+                            <input class="col-sm-6 form-control" type="text" value="{{ daniel.Materia }}" disabled="">   
+                                                 
+                            </div>
+                          
+                    </fieldset>
+                     <fieldset>
+                        <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">Hora entrada</label>                      
+                            <input class="col-sm-6 form-control" type="text" value="{{ daniel.horaInicio|date('H:i:s') }}" disabled="">
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">Hora salida</label>                      
+                            <input class="col-sm-6 form-control" type="text" value="{{ daniel.horaFin|date('H:i:s') }}" disabled="">
+                        </div>
+                    </fieldset>
+                   
+                    <fieldset>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Software utilizado</label>                      
+                            <input class="col-sm-6 form-control" type="text" value="{{ daniel.software }}" disabled="">
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Total de aulumnos</label>                      
+                            <input class="col-sm-6 form-control" type="text" value="{{ daniel.totalAlumnos }}" disabled="">
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Observaciones</label>                      
+                            <input class="col-sm-6 form-control" type="text" value="{{ daniel.observaciones }}" disabled="">
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-group row">    
+                            <label class="col-sm-2 col-form-label">Fecha</label>
+                            <input class="col-sm-6 form-control" type="text" value="{{ daniel.fecha|date('Y-m-d H:i:s') }}" disabled="">
+                        </div>  
+                    </fieldset>  
+                    
+                    <div class="cardbox-body text-center">
+                        <a class="mb-4 btn btn-lg btn-gradient wd-sm btn-warning" href="{{ path('daniel_edit', { 'id': daniel.id }) }}">EDITAR</a>
+                        {{ form_start(delete_form) }}
+                    
+                        <input class="mb-4 btn btn-lg btn-gradient wd-sm btn-danger" type="submit" value="ELIMINAR" />
+                    </div>
+                    {{ form_end(delete_form) }}
+                    </div>    
+                </div>
+                <div class="pb-1 bg-gradient-success"></div> 
+                 </div> 
+
+          
+
+{% endblock %}
+
+{% block Javascript %}
+
+    
+{% endblock %}
+
+
+
+{#{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Control</h1>
 
     <table>
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ daniel.id }}</td>
+                <td>{{ control.id }}</td>
             </tr>
             <tr>
-                <th>Horainicio</th>
-                <td>{% if daniel.horaInicio %}{{ daniel.horaInicio|date('H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Horafin</th>
-                <td>{% if daniel.horaFin %}{{ daniel.horaFin|date('H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Software</th>
-                <td>{{ daniel.software }}</td>
-            </tr>
-            <tr>
-                <th>Totalalumnos</th>
-                <td>{{ daniel.totalAlumnos }}</td>
+                <th>Descripcion</th>
+                <td>{{ control.descripcion }}</td>
             </tr>
             <tr>
                 <th>Observaciones</th>
-                <td>{{ daniel.observaciones }}</td>
+                <td>{{ control.observaciones }}</td>
             </tr>
             <tr>
-                <th>Fecha</th>
-                <td>{% if daniel.fecha %}{{ daniel.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <th>Fechainicio</th>
+                <td>{% if control.fechaInicio %}{{ control.fechaInicio|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Fechafin</th>
+                <td>{% if control.fechaFin %}{{ control.fechaFin|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('daniel_index') }}">Back to the list</a>
+            <a href="{{ path('control_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('daniel_edit', { 'id': daniel.id }) }}">Edit</a>
+            <a href="{{ path('control_edit', { 'id': control.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
@@ -49,4 +164,4 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
-{% endblock %}
+{% endblock %}#}

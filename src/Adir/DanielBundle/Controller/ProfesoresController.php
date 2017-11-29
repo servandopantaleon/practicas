@@ -33,7 +33,7 @@ class ProfesoresController extends Controller
      */
     public function newAction(Request $request)
     {
-        $profesore = new Profesore();
+        $profesore = new Profesores();
         $form = $this->createForm('Adir\DanielBundle\Form\ProfesoresType', $profesore);
         $form->handleRequest($request);
 

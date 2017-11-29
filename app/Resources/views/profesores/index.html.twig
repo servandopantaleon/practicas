@@ -1,10 +1,30 @@
 {% extends 'base.html.twig' %}
-
-{% block body %}
-    <h1>Profesores list</h1>
-
-    <table>
-        <thead>
+{% block content %}
+    <div class="cardbox">                
+        <div class="cardbox-heading">
+            <ul class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+                <li class="breadcrumb-item active"><span>Profesores</span></li>
+            </ul>
+        </div>
+    </div>
+<div class="cardbox">    
+<div class="col-sm-12">
+    <div class="cardbox text-white bg-gradient-primary b0">
+        <div class="cardbox-body text-center">           
+            <div class="text-bold display-1">listado de Profesores</div>
+        <br></br>
+             <a class="btn btn-secondary btn-gradient wd-sm btn-danger" href="{{ path('profesores_new') }}">Nuevo Profesor</a>
+    </div>
+</div> 
+</div>
+</div>
+<div class="cardbox"> 
+<div class="container">     
+    <div class="cardbox-body clearfix">
+        <div class="table-responsive">
+            <table class=" table table table-striped my-4 " id="datatable2">
+                <thead>
             <tr>
                 <th>Id</th>
                 <th>Nombres</th>
@@ -21,23 +41,22 @@
                 <td>{{ profesore.tel }}</td>
                 <td>{{ profesore.eMail }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('profesores_show', { 'id': profesore.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('profesores_edit', { 'id': profesore.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('profesores_new') }}">Create a new profesore</a>
-        </li>
-    </ul>
+<ul>                          
+                            <a class="btn btn-outline-primary" href="{{ path('profesores_show', { 'id': profesores.id }) }}">ver</a>
+                            <a class="btn btn-outline-danger" href="{{ path('profesores_edit', { 'id': profesores.id }) }}">editar</a>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
 {% endblock %}
+{% block Javascript %}
+
+
+  
+{% endblock Javascript %}

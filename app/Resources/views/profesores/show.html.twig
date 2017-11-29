@@ -1,35 +1,128 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <h1>Profesore</h1>
+{% block content %}
+   <div class="cardbox">                
+        <div class="cardbox-heading">
+        <ul class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ path('profesores_index') }}">Profesores</a></li>
+            <li class="breadcrumb-item active"><span>detalle del Profesor</span></li>
+        </ul>
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="cardbox">
+                    <div class="pb-1 bg-gradient-success"></div>
+                    <div class="cardbox-body">
+                        <div class="d-flex">
+                         {# <div class="mr-4"><img class="shadow-z5 thumb80 rounded" src="{{asset('bundles/reporte/assets/img/user/123.png')}}" alt="user"></div>#}
+                          <div class="mb-3"><img class="wd-sm rounded-circle img-thumbnail" src="{{asset('bundles/reporte/assets/img/user/123.png')}}" alt="user"></div>
+                          <div class="cardbox-body text-center">
+                            <div class="h3 my-2"><strong>INSTITUTO DE INVESTIGACIÓN EN HUMANIDADES Y CIENCIAS SOCIALES</strong></div>
+                                <div class="pb-1 bg-gradient-success"></div>
+                            <p>SECRETARIA EJECUTUVA/ CENTRO DE COMPUTO/ PROFESORES</p>
+                                <div class="pb-1 bg-gradient-success"></div>
+                            <div class="cardbox-body"><small>Av. Universidad 1001, Chamilpa Cuernavaca Morelos, 62209 México Tel: 329 70000 ext. 3453</small>
+                          </div>
+                           </div>
+                          <div class="ml-auto mb-3""><img class="wd-sm rounded-circle img-thumbnail"  src="{{asset('bundles/reporte/assets/img/12345.png')}}" alt="user"></div>
+                          <div>
+                        </div>                 
+                       </div>
+                    </div>              
+                </div>  
+            </div>  
+        </div>
+        <div class="cardbox">
+            <div class="cardbox-body text-center">
+                
+
+                  
+                <div class="cardbox-body">  
+                    <fieldset>
+                        <div class="form-group row">    
+                            <label class="col-sm-2 col-form-label">id</label>
+                            <input class="col-sm-6 form-control" type="text" value="{{ profesore.id }}" disabled="">  
+                        </div>
+                         
+                    </fieldset>             
+                    <fieldset>
+                        <div class="form-group row">    
+                            <label class="col-sm-2 col-form-label">Nombre</label>
+                            <input class="col-sm-6 form-control" type="text" value="{{ profesore.nombres }}" disabled="">                                                  
+                            </div>
+                          
+                    </fieldset> 
+                    <fieldset>
+                        <div class="form-group row">    
+                            <label class="col-sm-2 col-form-label">Ubicación</label>
+                            <input class="col-sm-6 form-control" type="text" value="{{ profesore.tel }}" disabled="">   
+                                                 
+                            </div>
+                          
+                    </fieldset>
+                     <fieldset>
+                        <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">Equipo</label>                      
+                            <input class="col-sm-6 form-control" type="text" value="{{ profesore.eMail }}" disabled="">
+                        </div>
+                    </fieldset>
+                    
+                    
+                    <div class="cardbox-body text-center">
+                        <a class="mb-4 btn btn-lg btn-gradient wd-sm btn-warning" href="{{ path('profesores_edit', { 'id': profesore.id }) }}">EDITAR</a>
+                        {{ form_start(delete_form) }}
+                    
+                        <input class="mb-4 btn btn-lg btn-gradient wd-sm btn-danger" type="submit" value="ELIMINAR" />
+                    </div>
+                    {{ form_end(delete_form) }}
+                    </div>    
+                </div>
+                <div class="pb-1 bg-gradient-success"></div> 
+                
+
+          
+
+{% endblock %}
+
+
+{#{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Prestamo</h1>
 
     <table>
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ profesore.id }}</td>
+                <td>{{ prestamo.id }}</td>
             </tr>
             <tr>
-                <th>Nombres</th>
-                <td>{{ profesore.nombres }}</td>
+                <th>Fechainicio</th>
+                <td>{% if prestamo.fechaInicio %}{{ prestamo.fechaInicio|date('Y-m-d') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Tel</th>
-                <td>{{ profesore.tel }}</td>
+                <th>Fechafin</th>
+                <td>{% if prestamo.fechaFin %}{{ prestamo.fechaFin|date('Y-m-d') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Email</th>
-                <td>{{ profesore.eMail }}</td>
+                <th>Atendido</th>
+                <td>{% if prestamo.atendido %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Ubicacion</th>
+                <td>{{ prestamo.ubicacion }}</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('profesores_index') }}">Back to the list</a>
+            <a href="{{ path('prestamos_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('profesores_edit', { 'id': profesore.id }) }}">Edit</a>
+            <a href="{{ path('prestamos_edit', { 'id': prestamo.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
@@ -37,4 +130,4 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
-{% endblock %}
+{% endblock %}#}
