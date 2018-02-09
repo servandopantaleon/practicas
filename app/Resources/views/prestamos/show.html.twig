@@ -1,10 +1,10 @@
-{% extends 'base.html.twig' %}
+{% extends 'base1.html.twig' %}
 
 {% block content %}
    <div class="cardbox">                
         <div class="cardbox-heading">
         <ul class="breadcrumb mb-0">
-            <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+            
             <li class="breadcrumb-item"><a href="{{ path('control_index') }}">Reportes</a></li>
             <li class="breadcrumb-item active"><span>detalle del reporte</span></li>
         </ul>
@@ -34,6 +34,7 @@
                 </div>  
             </div>  
         </div>
+        <div id="ctnTicket">
         <div class="cardbox">
             <div class="cardbox-body text-center">
                 <div class="h3 my-2"><strong>PRESTAMOS DE BIENES MUEBLES</strong></div>
@@ -118,10 +119,17 @@
                         {{ form_start(delete_form) }}
                     
                         <input class="mb-4 btn btn-lg btn-gradient wd-sm btn-danger" type="submit" value="ELIMINAR" />
+
+                        <div class="pull-right toggle-right-sidebar">
+                <div class="btn btn-success" id="create_pdf">Create PDF</div>
+            </div>
+
                     </div>
                     {{ form_end(delete_form) }}
                     </div>    
                 </div>
+            </div>
+
                 <div class="pb-1 bg-gradient-success"></div> 
                 
 
@@ -130,47 +138,43 @@
 {% endblock %}
 
 
-{#{% extends 'base.html.twig' %}
-
-{% block content %}
-    <h1>Prestamo</h1>
-
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ prestamo.id }}</td>
-            </tr>
-            <tr>
-                <th>Fechainicio</th>
-                <td>{% if prestamo.fechaInicio %}{{ prestamo.fechaInicio|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Fechafin</th>
-                <td>{% if prestamo.fechaFin %}{{ prestamo.fechaFin|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Atendido</th>
-                <td>{% if prestamo.atendido %}Yes{% else %}No{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Ubicacion</th>
-                <td>{{ prestamo.ubicacion }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('prestamos_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('prestamos_edit', { 'id': prestamo.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
-{% endblock %}#}
+{% block Javascript %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script type="text/javascript">
+       
+        (function(){
+            var
+            form = $('#ctnTicket'),
+            cache_width = form.width(),
+            a3 = [595.28, 841.89]; // for a4 size paper width and height
+            $('#create_pdf').on('click', function() {
+                $('body').scrollTop(0);
+                $('.fa-bars').click();
+                createPDF();
+                $('.fa-bars').click();
+            });
+            //create pdf
+            function createPDF() {
+                getCanvas().then(function(canvas) {
+                    var
+                    img = canvas.toDataURL("image/png"),
+                    doc = new jsPDF({
+                        unit: 'px',
+                        format: 'a3'
+                    });
+                    doc.addImage(img, 'JPEG', 25, 25);
+                    doc.save('Ticket.pdf');
+                    form.width(cache_width);
+                });
+            }
+            // create canvas object
+            function getCanvas() {
+                form.width((a3[0] * 1.88888) - 80).css('max-width', 'none');
+                return html2canvas(form, {
+                    imageTimeout: 2000,
+                    removeContainer: true
+                });
+            }
+        }());
+    </script>
+{% endblock Javascript %}

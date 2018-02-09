@@ -27,6 +27,11 @@ class Profesores
      */
     private $eMail;
 
+    public function __toString()
+    {
+        return (string) $this->nombres;
+    }
+
 
     /**
      * Get id
